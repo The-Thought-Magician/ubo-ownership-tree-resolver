@@ -25,9 +25,9 @@ const router = new Hono()
 //     threshold?: number,
 //     entities: [{ key, name, entity_type, is_natural_person?, is_target?,
 //                  jurisdiction?, registration_number? }],
-//     edges:    [{ from, to, percentage, edge_type?, notes? }]
+//     edges:    [{ owner, owned, percentage, edge_type?, notes? }]
 //   }
-// where `from`/`to`/`target` reference the per-entity `key` (string).
+// where `owner`/`owned`/`target` reference the per-entity `key` (string).
 // ---------------------------------------------------------------------------
 
 interface ScenarioEntity {
@@ -41,8 +41,8 @@ interface ScenarioEntity {
 }
 
 interface ScenarioEdge {
-  from: string
-  to: string
+  owner: string
+  owned: string
   percentage: number
   edge_type?: string
   notes?: string
@@ -145,8 +145,8 @@ router.post('/apply', authMiddleware, zValidator('json', applySchema), async (c)
   // Materialize ownership edges (skip any referencing unknown keys).
   const insertedEdges: typeof ownership_edges.$inferSelect[] = []
   for (const ed of scenarioEdges) {
-    const ownerId = keyToId.get(ed.from)
-    const ownedId = keyToId.get(ed.to)
+    const ownerId = keyToId.get(ed.owner)
+    const ownedId = keyToId.get(ed.owned)
     if (!ownerId || !ownedId) continue
     const [edge] = await db
       .insert(ownership_edges)
