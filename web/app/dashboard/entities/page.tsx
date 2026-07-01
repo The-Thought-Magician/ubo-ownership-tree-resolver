@@ -32,7 +32,7 @@ interface Entity {
   is_target?: boolean
 }
 
-const ENTITY_TYPES = ['individual', 'company', 'trust', 'partnership', 'foundation', 'nominee', 'fund', 'other']
+const ENTITY_TYPES = ['individual', 'person', 'company', 'trust', 'partnership', 'foundation', 'nominee', 'fund', 'other']
 
 const blankForm = {
   case_id: '',

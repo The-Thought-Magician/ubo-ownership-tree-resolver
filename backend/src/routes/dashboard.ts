@@ -44,7 +44,7 @@ router.get('/', authMiddleware, async (c) => {
   const caseIds = workspaceCases.map((cs) => cs.id)
   const totalCases = workspaceCases.length
   const openCases = workspaceCases.filter(
-    (cs) => cs.status !== 'closed' && cs.status !== 'resolved',
+    (cs) => cs.status !== 'closed' && cs.status !== 'resolved' && cs.status !== 'archived',
   ).length
 
   // Cases-with-discrepancies (distinct case ids that have stored discrepancy rows).
