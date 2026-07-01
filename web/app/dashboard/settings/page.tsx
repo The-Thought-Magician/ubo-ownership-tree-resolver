@@ -88,6 +88,10 @@ export default function SettingsPage() {
   const [wsThreshold, setWsThreshold] = useState('')
   const [savingWs, setSavingWs] = useState(false)
 
+  // first-workspace creation form (shown when the user has none yet)
+  const [newWsName, setNewWsName] = useState('')
+  const [creatingWs, setCreatingWs] = useState(false)
+
   // members
   const [members, setMembers] = useState<Member[]>([])
   const [membersLoading, setMembersLoading] = useState(false)
@@ -211,6 +215,26 @@ export default function SettingsPage() {
   function flash(msg: string) {
     setNotice(msg)
     setTimeout(() => setNotice(null), 3000)
+  }
+
+  async function createFirstWorkspace() {
+    if (!newWsName.trim()) {
+      setError('Workspace name is required.')
+      return
+    }
+    try {
+      setCreatingWs(true)
+      setError(null)
+      const created: Workspace = await api.createWorkspace({ name: newWsName.trim() })
+      setWorkspaces((prev) => [...prev, created])
+      setWorkspaceId(created.id)
+      setNewWsName('')
+      flash('Workspace created.')
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed to create workspace')
+    } finally {
+      setCreatingWs(false)
+    }
   }
 
   async function saveWorkspace() {
@@ -391,10 +415,32 @@ export default function SettingsPage() {
       )}
 
       {workspaces.length === 0 ? (
-        <EmptyState
-          title="No workspace yet"
-          description="Create a workspace from the dashboard to manage its settings, members, and billing."
-        />
+        <Card>
+          <CardHeader>
+            <h2 className="text-base font-semibold text-slate-100">Create your first workspace</h2>
+            <p className="mt-1 text-xs text-slate-500">
+              A workspace holds your cases, entities, and resolved ownership trees.
+            </p>
+          </CardHeader>
+          <CardBody className="space-y-4">
+            <div>
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                Workspace name
+              </label>
+              <input
+                value={newWsName}
+                onChange={(e) => setNewWsName(e.target.value)}
+                placeholder="Acme Compliance"
+                className="w-full max-w-md rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              />
+            </div>
+            <div className="flex justify-end">
+              <Button onClick={createFirstWorkspace} disabled={creatingWs}>
+                {creatingWs ? 'Creating...' : 'Create workspace'}
+              </Button>
+            </div>
+          </CardBody>
+        </Card>
       ) : (
         <>
           <Card>
