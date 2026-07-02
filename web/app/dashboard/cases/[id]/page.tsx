@@ -254,16 +254,16 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2 text-sm text-slate-500">
+        <div className="flex items-center gap-2 text-sm text-stone-500">
           <Link href="/dashboard/cases" className="hover:text-indigo-300">
             Cases
           </Link>
           <span>/</span>
-          <span className="text-slate-300">{kase.name}</span>
+          <span className="text-stone-300">{kase.name}</span>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-100">{kase.name}</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-stone-100">{kase.name}</h1>
             <Badge tone={statusTone(kase.status)}>{kase.status ?? 'draft'}</Badge>
           </div>
           <div className="flex gap-2">
@@ -272,7 +272,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
             </Link>
           </div>
         </div>
-        {kase.description && <p className="max-w-3xl text-sm text-slate-400">{kase.description}</p>}
+        {kase.description && <p className="max-w-3xl text-sm text-stone-400">{kase.description}</p>}
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -291,24 +291,24 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
         {/* Edit panel */}
         <Card className="xl:col-span-1">
           <CardHeader>
-            <h2 className="text-sm font-semibold text-slate-200">Case settings</h2>
+            <h2 className="text-sm font-semibold text-stone-200">Case settings</h2>
           </CardHeader>
           <CardBody className="space-y-4">
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Name</label>
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Name</label>
               <input
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Status</label>
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Status</label>
                 <select
                   value={editStatus}
                   onChange={(e) => setEditStatus(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 >
                   {STATUSES.map((s) => (
                     <option key={s} value={s}>
@@ -318,7 +318,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                   Threshold (%)
                 </label>
                 <input
@@ -328,27 +328,27 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                   step="0.01"
                   value={editThreshold}
                   onChange={(e) => setEditThreshold(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 />
               </div>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Assignee</label>
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Assignee</label>
               <input
                 value={editAssignee}
                 onChange={(e) => setEditAssignee(e.target.value)}
                 placeholder="User id (optional)"
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
               />
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Target entity
               </label>
               <select
                 value={editTarget}
                 onChange={(e) => setEditTarget(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               >
                 <option value="">None selected</option>
                 {entities.map((e) => (
@@ -359,7 +359,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                 ))}
               </select>
               {entities.length === 0 && (
-                <p className="mt-1 text-xs text-slate-600">
+                <p className="mt-1 text-xs text-stone-600">
                   Add entities in the{' '}
                   <Link href={`/dashboard/cases/${id}/graph`} className="text-indigo-400 hover:text-indigo-300">
                     graph editor
@@ -369,14 +369,14 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               )}
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Description
               </label>
               <textarea
                 value={editDesc}
                 onChange={(e) => setEditDesc(e.target.value)}
                 rows={3}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               />
             </div>
             <div className="flex items-center justify-between">
@@ -395,33 +395,33 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           {/* Target / meta */}
           <Card>
             <CardHeader>
-              <h2 className="text-sm font-semibold text-slate-200">Summary</h2>
+              <h2 className="text-sm font-semibold text-stone-200">Summary</h2>
             </CardHeader>
             <CardBody>
               <dl className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-3">
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Target entity</dt>
-                  <dd className="mt-0.5 text-slate-200">{targetEntity?.name ?? <span className="text-slate-600">Not set</span>}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Target entity</dt>
+                  <dd className="mt-0.5 text-stone-200">{targetEntity?.name ?? <span className="text-stone-600">Not set</span>}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Threshold</dt>
-                  <dd className="mt-0.5 tabular-nums text-slate-200">{fmtPct(kase.threshold)}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Threshold</dt>
+                  <dd className="mt-0.5 tabular-nums text-stone-200">{fmtPct(kase.threshold)}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Assignee</dt>
-                  <dd className="mt-0.5 text-slate-200">{kase.assignee_id || <span className="text-slate-600">Unassigned</span>}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Assignee</dt>
+                  <dd className="mt-0.5 text-stone-200">{kase.assignee_id || <span className="text-stone-600">Unassigned</span>}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Created</dt>
-                  <dd className="mt-0.5 text-slate-200">{fmtDate(kase.created_at)}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Created</dt>
+                  <dd className="mt-0.5 text-stone-200">{fmtDate(kase.created_at)}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Updated</dt>
-                  <dd className="mt-0.5 text-slate-200">{fmtDate(kase.updated_at)}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Updated</dt>
+                  <dd className="mt-0.5 text-stone-200">{fmtDate(kase.updated_at)}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-slate-500">Last resolution</dt>
-                  <dd className="mt-0.5 text-slate-200">{latestResolution ? fmtDate(latestResolution.created_at) : <span className="text-slate-600">None</span>}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-stone-500">Last resolution</dt>
+                  <dd className="mt-0.5 text-stone-200">{latestResolution ? fmtDate(latestResolution.created_at) : <span className="text-stone-600">None</span>}</dd>
                 </div>
               </dl>
             </CardBody>
@@ -430,14 +430,14 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           {/* Recent resolutions */}
           <Card>
             <CardHeader className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-slate-200">Recent resolutions</h2>
+              <h2 className="text-sm font-semibold text-stone-200">Recent resolutions</h2>
               <Link href="/dashboard/resolutions" className="text-xs font-medium text-indigo-400 hover:text-indigo-300">
                 Manage
               </Link>
             </CardHeader>
             <CardBody className="p-0">
               {resolutions.length === 0 ? (
-                <div className="px-5 py-6 text-center text-sm text-slate-500">
+                <div className="px-5 py-6 text-center text-sm text-stone-500">
                   No resolutions run yet for this case.
                 </div>
               ) : (
@@ -455,7 +455,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                     {resolutions.slice(0, 5).map((r) => (
                       <TR key={r.id}>
                         <TD>
-                          <Link href={`/dashboard/resolutions/${r.id}`} className="text-slate-200 hover:text-indigo-300">
+                          <Link href={`/dashboard/resolutions/${r.id}`} className="text-stone-200 hover:text-indigo-300">
                             {fmtDate(r.created_at)}
                           </Link>
                         </TD>
@@ -478,14 +478,14 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
           {/* Discrepancies */}
           <Card>
             <CardHeader className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-slate-200">Discrepancies</h2>
+              <h2 className="text-sm font-semibold text-stone-200">Discrepancies</h2>
               <Link href="/dashboard/discrepancies" className="text-xs font-medium text-indigo-400 hover:text-indigo-300">
                 Detect
               </Link>
             </CardHeader>
             <CardBody className="p-0">
               {discrepancies.length === 0 ? (
-                <div className="px-5 py-6 text-center text-sm text-slate-500">
+                <div className="px-5 py-6 text-center text-sm text-stone-500">
                   No discrepancies recorded between computed and filed ownership.
                 </div>
               ) : (
@@ -502,8 +502,8 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
                   <TBody>
                     {discrepancies.map((d) => (
                       <TR key={d.id}>
-                        <TD className="font-medium text-slate-100">{d.person_name ?? '—'}</TD>
-                        <TD className="text-slate-400">{d.kind ?? '—'}</TD>
+                        <TD className="font-medium text-stone-100">{d.person_name ?? '—'}</TD>
+                        <TD className="text-stone-400">{d.kind ?? '—'}</TD>
                         <TD>
                           <Badge tone={severityTone(d.severity)}>{d.severity ?? 'info'}</Badge>
                         </TD>
@@ -522,7 +522,7 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
       {/* Sub-tools */}
       <Card>
         <CardHeader>
-          <h2 className="text-sm font-semibold text-slate-200">Tools</h2>
+          <h2 className="text-sm font-semibold text-stone-200">Tools</h2>
         </CardHeader>
         <CardBody>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -530,10 +530,10 @@ export default function CaseDetailPage({ params }: { params: Promise<{ id: strin
               <Link
                 key={t.href}
                 href={t.href}
-                className="group rounded-lg border border-slate-800 bg-slate-950/40 px-4 py-3 transition-colors hover:border-indigo-500/40 hover:bg-slate-900"
+                className="group rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-3 transition-colors hover:border-indigo-500/40 hover:bg-stone-900"
               >
-                <div className="text-sm font-medium text-slate-200 group-hover:text-indigo-300">{t.label}</div>
-                <div className="mt-0.5 text-xs text-slate-500">{t.desc}</div>
+                <div className="text-sm font-medium text-stone-200 group-hover:text-indigo-300">{t.label}</div>
+                <div className="mt-0.5 text-xs text-stone-500">{t.desc}</div>
               </Link>
             ))}
           </div>

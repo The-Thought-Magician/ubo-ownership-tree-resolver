@@ -211,8 +211,8 @@ export default function DiscrepanciesPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Discrepancy Detection</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Discrepancy Detection</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Compare the computed beneficial-owner set against the filed set to surface mismatches, omissions, and
             over-declarations.
           </p>
@@ -236,15 +236,15 @@ export default function DiscrepanciesPage() {
         <>
           <Card>
             <CardHeader>
-              <h2 className="text-sm font-semibold text-slate-200">Run Detection</h2>
+              <h2 className="text-sm font-semibold text-stone-200">Run Detection</h2>
             </CardHeader>
             <CardBody className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Case</label>
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Case</label>
                 <select
                   value={caseId}
                   onChange={(e) => setCaseId(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 >
                   {cases.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -254,14 +254,14 @@ export default function DiscrepanciesPage() {
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                   Resolution Run
                 </label>
                 <select
                   value={resolutionId}
                   onChange={(e) => setResolutionId(e.target.value)}
                   disabled={resolutions.length === 0}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
                 >
                   {resolutions.length === 0 && <option value="">No resolutions</option>}
                   {resolutions.map((r) => (
@@ -285,7 +285,7 @@ export default function DiscrepanciesPage() {
               )}
               {lastRun && <p className="md:col-span-3 text-xs text-emerald-300">{lastRun}</p>}
               {activeRes && (
-                <p className="md:col-span-3 text-xs text-slate-500">
+                <p className="md:col-span-3 text-xs text-stone-500">
                   Selected run: {activeRes.qualifying_count} qualifying owner(s), {activeRes.control_count} via control,
                   threshold {fmtVal(activeRes.threshold)}.
                 </p>
@@ -303,7 +303,7 @@ export default function DiscrepanciesPage() {
           {Object.keys(stats.bySev).length > 0 && (
             <Card>
               <CardHeader>
-                <h2 className="text-sm font-semibold text-slate-200">Severity Breakdown</h2>
+                <h2 className="text-sm font-semibold text-stone-200">Severity Breakdown</h2>
               </CardHeader>
               <CardBody className="space-y-3">
                 {Object.entries(stats.bySev)
@@ -313,7 +313,7 @@ export default function DiscrepanciesPage() {
                       <div className="w-24 shrink-0">
                         <Badge tone={toneFor(sev)}>{sev}</Badge>
                       </div>
-                      <div className="h-3 flex-1 overflow-hidden rounded-full bg-slate-800">
+                      <div className="h-3 flex-1 overflow-hidden rounded-full bg-stone-800">
                         <div
                           className={`h-full rounded-full ${
                             toneFor(sev) === 'rose'
@@ -322,12 +322,12 @@ export default function DiscrepanciesPage() {
                                 ? 'bg-amber-500'
                                 : toneFor(sev) === 'sky'
                                   ? 'bg-sky-500'
-                                  : 'bg-slate-500'
+                                  : 'bg-stone-500'
                           }`}
                           style={{ width: `${(count / maxSev) * 100}%` }}
                         />
                       </div>
-                      <span className="w-8 text-right tabular-nums text-sm text-slate-300">{count}</span>
+                      <span className="w-8 text-right tabular-nums text-sm text-stone-300">{count}</span>
                     </div>
                   ))}
               </CardBody>
@@ -341,12 +341,12 @@ export default function DiscrepanciesPage() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search person, kind, or detail..."
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none sm:w-64"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none sm:w-64"
                 />
                 <select
                   value={severityFilter}
                   onChange={(e) => setSeverityFilter(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 >
                   {severities.map((s) => (
                     <option key={s} value={s}>
@@ -355,7 +355,7 @@ export default function DiscrepanciesPage() {
                   ))}
                 </select>
               </div>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-stone-500">
                 {filtered.length} of {discrepancies.length} shown
               </span>
             </CardHeader>
@@ -398,8 +398,8 @@ export default function DiscrepanciesPage() {
                           <TD>
                             <Badge tone={toneFor(d.severity)}>{d.severity || 'info'}</Badge>
                           </TD>
-                          <TD className="text-slate-200">{kindLabel(d.kind)}</TD>
-                          <TD className="font-medium text-slate-100">{d.person_name}</TD>
+                          <TD className="text-stone-200">{kindLabel(d.kind)}</TD>
+                          <TD className="font-medium text-stone-100">{d.person_name}</TD>
                           <TD className="tabular-nums">{fmtVal(d.computed_value)}</TD>
                           <TD className="tabular-nums">
                             <span>{fmtVal(d.filed_value)}</span>
@@ -410,7 +410,7 @@ export default function DiscrepanciesPage() {
                               </span>
                             )}
                           </TD>
-                          <TD className="max-w-md text-slate-400">{d.detail || '—'}</TD>
+                          <TD className="max-w-md text-stone-400">{d.detail || '—'}</TD>
                         </TR>
                       )
                     })}

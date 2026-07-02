@@ -351,8 +351,8 @@ export default function CaseGraphPage() {
   if (loading) return <PageSpinner label="Loading ownership graph..." />
 
   const input =
-    'w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:border-indigo-500 focus:outline-none'
-  const labelCls = 'mb-1 block text-xs font-medium text-slate-400'
+    'w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-100 placeholder-stone-600 focus:border-indigo-500 focus:outline-none'
+  const labelCls = 'mb-1 block text-xs font-medium text-stone-400'
 
   return (
     <div className="space-y-6">
@@ -361,8 +361,8 @@ export default function CaseGraphPage() {
           <Link href={`/dashboard/cases/${caseId}`} className="text-xs text-indigo-400 hover:text-indigo-300">
             &larr; Back to case
           </Link>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-100">Ownership Graph</h1>
-          <p className="text-sm text-slate-500">Layered beneficial-ownership editor with live validation.</p>
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-stone-100">Ownership Graph</h1>
+          <p className="text-sm text-stone-500">Layered beneficial-ownership editor with live validation.</p>
         </div>
         <div className="flex gap-2">
           <Button variant="secondary" onClick={openCreateEntity}>+ Entity</Button>
@@ -384,7 +384,7 @@ export default function CaseGraphPage() {
       {/* Validation panel */}
       <Card>
         <CardHeader className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-slate-200">Validation</h2>
+          <h2 className="text-sm font-semibold text-stone-200">Validation</h2>
           {warnings.length === 0 ? (
             <Badge tone="green">All checks pass</Badge>
           ) : (
@@ -396,7 +396,7 @@ export default function CaseGraphPage() {
         </CardHeader>
         <CardBody>
           {warnings.length === 0 ? (
-            <p className="text-sm text-slate-500">No structural issues found in the current graph.</p>
+            <p className="text-sm text-stone-500">No structural issues found in the current graph.</p>
           ) : (
             <ul className="space-y-1.5">
               {warnings.map((w, i) => (
@@ -404,7 +404,7 @@ export default function CaseGraphPage() {
                   <span className={w.level === 'error' ? 'text-rose-400' : 'text-amber-400'}>
                     {w.level === 'error' ? '✖' : '⚠'}
                   </span>
-                  <span className="text-slate-300">{w.message}</span>
+                  <span className="text-stone-300">{w.message}</span>
                 </li>
               ))}
             </ul>
@@ -413,13 +413,13 @@ export default function CaseGraphPage() {
       </Card>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-slate-800">
+      <div className="flex gap-1 border-b border-stone-800">
         {(['canvas', 'entities', 'edges'] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
             className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
-              tab === t ? 'border-b-2 border-indigo-500 text-indigo-300' : 'text-slate-500 hover:text-slate-300'
+              tab === t ? 'border-b-2 border-indigo-500 text-indigo-300' : 'text-stone-500 hover:text-stone-300'
             }`}
           >
             {t}
@@ -505,10 +505,10 @@ export default function CaseGraphPage() {
                     }),
                   )}
                 </svg>
-                <div className="mt-3 flex flex-wrap gap-4 text-xs text-slate-500">
+                <div className="mt-3 flex flex-wrap gap-4 text-xs text-stone-500">
                   <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-indigo-900 ring-1 ring-indigo-400" /> Target</span>
                   <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-teal-800 ring-1 ring-teal-400" /> Natural person</span>
-                  <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-slate-800 ring-1 ring-slate-600" /> Legal entity</span>
+                  <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-stone-800 ring-1 ring-stone-600" /> Legal entity</span>
                   <span>Click a node to edit. Layers are ordered owners (top) to target (bottom).</span>
                 </div>
               </div>
@@ -538,7 +538,7 @@ export default function CaseGraphPage() {
               <TBody>
                 {entities.map((e) => (
                   <TR key={e.id}>
-                    <TD className="font-medium text-slate-100">{e.name}</TD>
+                    <TD className="font-medium text-stone-100">{e.name}</TD>
                     <TD>{e.entity_type || '—'}</TD>
                     <TD>{e.jurisdiction || '—'}</TD>
                     <TD>{e.registration_number || '—'}</TD>
@@ -589,11 +589,11 @@ export default function CaseGraphPage() {
                   const bad = ed.percentage > 100 || ed.owner_entity_id === ed.owned_entity_id
                   return (
                     <TR key={ed.id}>
-                      <TD className="font-medium text-slate-100">{entityById.get(ed.owner_entity_id)?.name ?? '—'}</TD>
+                      <TD className="font-medium text-stone-100">{entityById.get(ed.owner_entity_id)?.name ?? '—'}</TD>
                       <TD>{entityById.get(ed.owned_entity_id)?.name ?? '—'}</TD>
                       <TD className={`text-right tabular-nums ${bad ? 'text-rose-300' : ''}`}>{ed.percentage}%</TD>
                       <TD>{ed.edge_type || 'equity'}</TD>
-                      <TD className="max-w-[16rem] truncate text-slate-500">{ed.notes || '—'}</TD>
+                      <TD className="max-w-[16rem] truncate text-stone-500">{ed.notes || '—'}</TD>
                       <TD className="text-right">
                         <div className="flex justify-end gap-2">
                           <Button variant="ghost" className="px-2 py-1" onClick={() => openEditEdge(ed)}>Edit</Button>
@@ -643,11 +643,11 @@ export default function CaseGraphPage() {
             <input className={input} value={entityForm.registration_number} onChange={(e) => setEntityForm({ ...entityForm, registration_number: e.target.value })} placeholder="optional" />
           </div>
           <div className="flex gap-6">
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={entityForm.is_natural_person} onChange={(e) => setEntityForm({ ...entityForm, is_natural_person: e.target.checked })} className="accent-indigo-500" />
               Natural person
             </label>
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={entityForm.is_target} onChange={(e) => setEntityForm({ ...entityForm, is_target: e.target.checked })} className="accent-indigo-500" />
               Target entity
             </label>

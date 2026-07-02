@@ -397,8 +397,8 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-slate-100">Settings</h1>
-        <p className="mt-1 text-sm text-slate-500">
+        <h1 className="text-2xl font-semibold text-stone-100">Settings</h1>
+        <p className="mt-1 text-sm text-stone-500">
           Manage your workspace, members, case tags, and subscription.
         </p>
       </div>
@@ -417,21 +417,21 @@ export default function SettingsPage() {
       {workspaces.length === 0 ? (
         <Card>
           <CardHeader>
-            <h2 className="text-base font-semibold text-slate-100">Create your first workspace</h2>
-            <p className="mt-1 text-xs text-slate-500">
+            <h2 className="text-base font-semibold text-stone-100">Create your first workspace</h2>
+            <p className="mt-1 text-xs text-stone-500">
               A workspace holds your cases, entities, and resolved ownership trees.
             </p>
           </CardHeader>
           <CardBody className="space-y-4">
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Workspace name
               </label>
               <input
                 value={newWsName}
                 onChange={(e) => setNewWsName(e.target.value)}
                 placeholder="Acme Compliance"
-                className="w-full max-w-md rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                className="w-full max-w-md rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
               />
             </div>
             <div className="flex justify-end">
@@ -445,11 +445,11 @@ export default function SettingsPage() {
         <>
           <Card>
             <CardBody className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <label className="text-xs font-medium uppercase tracking-wide text-slate-500">Workspace</label>
+              <label className="text-xs font-medium uppercase tracking-wide text-stone-500">Workspace</label>
               <select
                 value={workspaceId}
                 onChange={(e) => setWorkspaceId(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none sm:w-80"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none sm:w-80"
               >
                 {workspaces.map((w) => (
                   <option key={w.id} value={w.id}>
@@ -464,13 +464,13 @@ export default function SettingsPage() {
           </Card>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-1 rounded-lg border border-slate-800 bg-slate-900/60 p-1">
+          <div className="flex flex-wrap gap-1 rounded-lg border border-stone-800 bg-stone-900/60 p-1">
             {TABS.map((t) => (
               <button
                 key={t.key}
                 onClick={() => setTab(t.key)}
                 className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                  tab === t.key ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'
+                  tab === t.key ? 'bg-indigo-600 text-white' : 'text-stone-400 hover:text-stone-200'
                 }`}
               >
                 {t.label}
@@ -481,24 +481,24 @@ export default function SettingsPage() {
           {tab === 'workspace' && (
             <Card>
               <CardHeader>
-                <h2 className="text-base font-semibold text-slate-100">Workspace details</h2>
-                <p className="mt-1 text-xs text-slate-500">
+                <h2 className="text-base font-semibold text-stone-100">Workspace details</h2>
+                <p className="mt-1 text-xs text-stone-500">
                   The default threshold seeds new cases. Beneficial owners at or above this percentage qualify.
                 </p>
               </CardHeader>
               <CardBody className="space-y-4">
                 <div>
-                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                     Workspace name
                   </label>
                   <input
                     value={wsName}
                     onChange={(e) => setWsName(e.target.value)}
-                    className="w-full max-w-md rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                    className="w-full max-w-md rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                     Default ownership threshold (%)
                   </label>
                   <input
@@ -509,17 +509,17 @@ export default function SettingsPage() {
                     value={wsThreshold}
                     onChange={(e) => setWsThreshold(e.target.value)}
                     placeholder="25"
-                    className="w-full max-w-xs rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                    className="w-full max-w-xs rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
                   />
                 </div>
-                <dl className="grid grid-cols-2 gap-4 border-t border-slate-800 pt-4 text-sm sm:max-w-md">
+                <dl className="grid grid-cols-2 gap-4 border-t border-stone-800 pt-4 text-sm sm:max-w-md">
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-slate-500">Owner</dt>
-                    <dd className="mt-1 font-mono text-xs text-slate-300">{activeWorkspace?.owner_id || '—'}</dd>
+                    <dt className="text-xs uppercase tracking-wide text-stone-500">Owner</dt>
+                    <dd className="mt-1 font-mono text-xs text-stone-300">{activeWorkspace?.owner_id || '—'}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-slate-500">Workspace ID</dt>
-                    <dd className="mt-1 font-mono text-xs text-slate-300">{activeWorkspace?.id || '—'}</dd>
+                    <dt className="text-xs uppercase tracking-wide text-stone-500">Workspace ID</dt>
+                    <dd className="mt-1 font-mono text-xs text-stone-300">{activeWorkspace?.id || '—'}</dd>
                   </div>
                 </dl>
                 <div className="flex justify-end">
@@ -535,8 +535,8 @@ export default function SettingsPage() {
             <Card>
               <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="text-base font-semibold text-slate-100">Members</h2>
-                  <p className="mt-1 text-xs text-slate-500">
+                  <h2 className="text-base font-semibold text-stone-100">Members</h2>
+                  <p className="mt-1 text-xs text-stone-500">
                     People who can view and edit cases in this workspace.
                   </p>
                 </div>
@@ -570,7 +570,7 @@ export default function SettingsPage() {
                         const isOwner = m.role === 'owner'
                         return (
                           <TR key={m.id}>
-                            <TD className="font-mono text-xs text-slate-200">{m.user_id}</TD>
+                            <TD className="font-mono text-xs text-stone-200">{m.user_id}</TD>
                             <TD>
                               {isOwner ? (
                                 <Badge tone={roleTone(m.role)}>owner</Badge>
@@ -579,19 +579,19 @@ export default function SettingsPage() {
                                   value={m.role}
                                   disabled={busyId === m.id}
                                   onChange={(e) => changeRole(m, e.target.value)}
-                                  className="rounded-md border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                                  className="rounded-md border border-stone-700 bg-stone-950 px-2 py-1 text-xs text-stone-200 focus:border-indigo-500 focus:outline-none"
                                 >
                                   <option value="member">member</option>
                                   <option value="admin">admin</option>
                                 </select>
                               )}
                             </TD>
-                            <TD className="text-slate-400">
+                            <TD className="text-stone-400">
                               {m.created_at ? new Date(m.created_at).toLocaleDateString() : '—'}
                             </TD>
                             <TD className="text-right">
                               {isOwner ? (
-                                <span className="text-xs text-slate-600">—</span>
+                                <span className="text-xs text-stone-600">—</span>
                               ) : (
                                 <Button
                                   variant="ghost"
@@ -617,8 +617,8 @@ export default function SettingsPage() {
             <div className="space-y-4">
               <Card>
                 <CardHeader>
-                  <h2 className="text-base font-semibold text-slate-100">Create tag</h2>
-                  <p className="mt-1 text-xs text-slate-500">Tags help organize and filter cases.</p>
+                  <h2 className="text-base font-semibold text-stone-100">Create tag</h2>
+                  <p className="mt-1 text-xs text-stone-500">Tags help organize and filter cases.</p>
                 </CardHeader>
                 <CardBody className="space-y-4">
                   {tagFormError && (
@@ -628,7 +628,7 @@ export default function SettingsPage() {
                   )}
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
                     <div className="flex-1">
-                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                         Name
                       </label>
                       <input
@@ -638,11 +638,11 @@ export default function SettingsPage() {
                           if (e.key === 'Enter' && !savingTag) void submitTag()
                         }}
                         placeholder="e.g. High risk"
-                        className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                        className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
                       />
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                         Color
                       </label>
                       <div className="flex gap-1.5">
@@ -669,8 +669,8 @@ export default function SettingsPage() {
 
               <Card>
                 <CardHeader className="flex items-center justify-between">
-                  <h2 className="text-base font-semibold text-slate-100">Tags</h2>
-                  <span className="text-xs text-slate-500">{tags.length} total</span>
+                  <h2 className="text-base font-semibold text-stone-100">Tags</h2>
+                  <span className="text-xs text-stone-500">{tags.length} total</span>
                 </CardHeader>
                 <CardBody>
                   {tagsLoading ? (
@@ -687,7 +687,7 @@ export default function SettingsPage() {
                       {tags.map((t) => (
                         <span
                           key={t.id}
-                          className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-950 px-3 py-1.5 text-sm text-slate-200"
+                          className="inline-flex items-center gap-2 rounded-full border border-stone-700 bg-stone-950 px-3 py-1.5 text-sm text-stone-200"
                         >
                           <span
                             className="h-2.5 w-2.5 rounded-full"
@@ -697,7 +697,7 @@ export default function SettingsPage() {
                           <button
                             onClick={() => removeTag(t)}
                             disabled={busyId === t.id}
-                            className="ml-1 text-slate-500 hover:text-rose-400 disabled:opacity-50"
+                            className="ml-1 text-stone-500 hover:text-rose-400 disabled:opacity-50"
                             aria-label={`Delete tag ${t.name}`}
                           >
                             {busyId === t.id ? '...' : '×'}
@@ -714,8 +714,8 @@ export default function SettingsPage() {
           {tab === 'billing' && (
             <Card>
               <CardHeader>
-                <h2 className="text-base font-semibold text-slate-100">Subscription</h2>
-                <p className="mt-1 text-xs text-slate-500">Your current plan and billing management.</p>
+                <h2 className="text-base font-semibold text-stone-100">Subscription</h2>
+                <p className="mt-1 text-xs text-stone-500">Your current plan and billing management.</p>
               </CardHeader>
               <CardBody className="space-y-6">
                 {billingLoading ? (
@@ -770,19 +770,19 @@ export default function SettingsPage() {
                         className={`rounded-xl border p-5 ${
                           (billing.subscription?.plan_id || 'free') === 'free'
                             ? 'border-indigo-500/50 bg-indigo-500/5'
-                            : 'border-slate-800 bg-slate-950'
+                            : 'border-stone-800 bg-stone-950'
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="text-sm font-semibold text-slate-100">Free</h3>
+                          <h3 className="text-sm font-semibold text-stone-100">Free</h3>
                           {(billing.subscription?.plan_id || 'free') === 'free' && (
                             <Badge tone="indigo">Current</Badge>
                           )}
                         </div>
-                        <p className="mt-2 text-2xl font-semibold text-slate-100">
-                          $0<span className="text-sm font-normal text-slate-500">/mo</span>
+                        <p className="mt-2 text-2xl font-semibold text-stone-100">
+                          $0<span className="text-sm font-normal text-stone-500">/mo</span>
                         </p>
-                        <ul className="mt-4 space-y-1.5 text-sm text-slate-400">
+                        <ul className="mt-4 space-y-1.5 text-sm text-stone-400">
                           <li>Single workspace</li>
                           <li>Core ownership resolution</li>
                           <li>Manual snapshots and diffs</li>
@@ -793,21 +793,21 @@ export default function SettingsPage() {
                         className={`rounded-xl border p-5 ${
                           billing.subscription?.plan_id === 'pro'
                             ? 'border-indigo-500/50 bg-indigo-500/5'
-                            : 'border-slate-800 bg-slate-950'
+                            : 'border-stone-800 bg-stone-950'
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="text-sm font-semibold text-slate-100">Pro</h3>
+                          <h3 className="text-sm font-semibold text-stone-100">Pro</h3>
                           {billing.subscription?.plan_id === 'pro' && <Badge tone="indigo">Current</Badge>}
                         </div>
-                        <p className="mt-2 text-2xl font-semibold text-slate-100">
+                        <p className="mt-2 text-2xl font-semibold text-stone-100">
                           $
                           {billing.plan && billing.plan.id === 'pro'
                             ? (billing.plan.price_cents / 100).toFixed(0)
                             : '49'}
-                          <span className="text-sm font-normal text-slate-500">/mo</span>
+                          <span className="text-sm font-normal text-stone-500">/mo</span>
                         </p>
-                        <ul className="mt-4 space-y-1.5 text-sm text-slate-400">
+                        <ul className="mt-4 space-y-1.5 text-sm text-stone-400">
                           <li>Unlimited workspaces and members</li>
                           <li>Discrepancy detection and exports</li>
                           <li>Full audit trail and trust modeling</li>
@@ -815,7 +815,7 @@ export default function SettingsPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 border-t border-slate-800 pt-4">
+                    <div className="flex flex-wrap gap-3 border-t border-stone-800 pt-4">
                       {billing.subscription?.plan_id !== 'pro' && (
                         <Button onClick={startCheckout} disabled={billingBusy || !billing.stripeEnabled}>
                           {billingBusy ? 'Redirecting...' : 'Upgrade to Pro'}
@@ -855,21 +855,21 @@ export default function SettingsPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">User ID</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">User ID</label>
             <input
               value={memberUserId}
               onChange={(e) => setMemberUserId(e.target.value)}
               placeholder="e.g. user_2abc..."
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
-            <p className="mt-1 text-xs text-slate-500">The user must already have an account.</p>
+            <p className="mt-1 text-xs text-stone-500">The user must already have an account.</p>
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Role</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Role</label>
             <select
               value={memberRole}
               onChange={(e) => setMemberRole(e.target.value)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             >
               <option value="member">member</option>
               <option value="admin">admin</option>

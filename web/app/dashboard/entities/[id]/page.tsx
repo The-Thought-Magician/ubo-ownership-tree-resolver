@@ -192,8 +192,8 @@ export default function EntityDetailPage() {
   if (loading) return <PageSpinner label="Loading entity..." />
 
   const input =
-    'w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:border-indigo-500 focus:outline-none'
-  const labelCls = 'mb-1 block text-xs font-medium text-slate-400'
+    'w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-100 placeholder-stone-600 focus:border-indigo-500 focus:outline-none'
+  const labelCls = 'mb-1 block text-xs font-medium text-stone-400'
 
   if (!entity) {
     return (
@@ -215,7 +215,7 @@ export default function EntityDetailPage() {
               {entity.name.slice(0, 1).toUpperCase()}
             </span>
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight text-slate-100">{entity.name}</h1>
+              <h1 className="text-2xl font-semibold tracking-tight text-stone-100">{entity.name}</h1>
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <Badge tone="slate">{entity.entity_type || 'entity'}</Badge>
                 {entity.is_target && <Badge tone="amber">Target</Badge>}
@@ -233,27 +233,27 @@ export default function EntityDetailPage() {
       {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-300">{error}</div>}
 
       <Card>
-        <CardHeader><h2 className="text-sm font-semibold text-slate-200">Details</h2></CardHeader>
+        <CardHeader><h2 className="text-sm font-semibold text-stone-200">Details</h2></CardHeader>
         <CardBody>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-slate-500">Jurisdiction</dt>
-              <dd className="mt-0.5 text-sm text-slate-200">{entity.jurisdiction || '—'}</dd>
+              <dt className="text-xs uppercase tracking-wide text-stone-500">Jurisdiction</dt>
+              <dd className="mt-0.5 text-sm text-stone-200">{entity.jurisdiction || '—'}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-slate-500">Registration No.</dt>
-              <dd className="mt-0.5 text-sm text-slate-200">{entity.registration_number || '—'}</dd>
+              <dt className="text-xs uppercase tracking-wide text-stone-500">Registration No.</dt>
+              <dd className="mt-0.5 text-sm text-stone-200">{entity.registration_number || '—'}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-slate-500">Formation date</dt>
-              <dd className="mt-0.5 text-sm text-slate-200">{fmtDate(entity.formation_date)}</dd>
+              <dt className="text-xs uppercase tracking-wide text-stone-500">Formation date</dt>
+              <dd className="mt-0.5 text-sm text-stone-200">{fmtDate(entity.formation_date)}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-slate-500">Type</dt>
-              <dd className="mt-0.5 text-sm text-slate-200">{entity.entity_type || '—'}</dd>
+              <dt className="text-xs uppercase tracking-wide text-stone-500">Type</dt>
+              <dd className="mt-0.5 text-sm text-stone-200">{entity.entity_type || '—'}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-slate-500">Case</dt>
+              <dt className="text-xs uppercase tracking-wide text-stone-500">Case</dt>
               <dd className="mt-0.5 text-sm">
                 <Link href={`/dashboard/cases/${entity.case_id}`} className="text-indigo-400 hover:text-indigo-300">View case</Link>
               </dd>
@@ -266,30 +266,30 @@ export default function EntityDetailPage() {
         {/* Documents */}
         <Card>
           <CardHeader className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-200">Documents <span className="text-slate-500">({documents.length})</span></h2>
+            <h2 className="text-sm font-semibold text-stone-200">Documents <span className="text-stone-500">({documents.length})</span></h2>
             <Button variant="secondary" className="px-3 py-1.5" onClick={() => setDocModal(true)}>+ Add</Button>
           </CardHeader>
           <CardBody>
             {documents.length === 0 ? (
-              <p className="text-sm text-slate-500">No documents attached to this entity yet.</p>
+              <p className="text-sm text-stone-500">No documents attached to this entity yet.</p>
             ) : (
               <ul className="space-y-3">
                 {documents.map((d) => (
-                  <li key={d.id} className="rounded-lg border border-slate-800 bg-slate-950/40 px-4 py-3">
+                  <li key={d.id} className="rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-3">
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="truncate text-sm font-medium text-slate-100">{d.title}</span>
+                          <span className="truncate text-sm font-medium text-stone-100">{d.title}</span>
                           {d.doc_type && <Badge tone="sky">{d.doc_type}</Badge>}
                         </div>
-                        {d.content && <p className="mt-1 line-clamp-2 text-xs text-slate-500">{d.content}</p>}
+                        {d.content && <p className="mt-1 line-clamp-2 text-xs text-stone-500">{d.content}</p>}
                         {d.url && (
                           <a href={d.url} target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs text-indigo-400 hover:text-indigo-300">
                             {d.url}
                           </a>
                         )}
                       </div>
-                      <span className="shrink-0 text-xs text-slate-600">{fmtDate(d.created_at)}</span>
+                      <span className="shrink-0 text-xs text-stone-600">{fmtDate(d.created_at)}</span>
                     </div>
                   </li>
                 ))}
@@ -300,7 +300,7 @@ export default function EntityDetailPage() {
 
         {/* Notes */}
         <Card>
-          <CardHeader><h2 className="text-sm font-semibold text-slate-200">Notes <span className="text-slate-500">({notes.length})</span></h2></CardHeader>
+          <CardHeader><h2 className="text-sm font-semibold text-stone-200">Notes <span className="text-stone-500">({notes.length})</span></h2></CardHeader>
           <CardBody className="space-y-4">
             <div className="flex gap-2">
               <textarea
@@ -313,22 +313,22 @@ export default function EntityDetailPage() {
               <Button onClick={addNote} disabled={busy || !noteBody.trim()} className="self-start">Add</Button>
             </div>
             {sortedNotes.length === 0 ? (
-              <p className="text-sm text-slate-500">No notes recorded for this entity.</p>
+              <p className="text-sm text-stone-500">No notes recorded for this entity.</p>
             ) : (
               <ul className="space-y-3">
                 {sortedNotes.map((n) => (
-                  <li key={n.id} className="rounded-lg border border-slate-800 bg-slate-950/40 px-4 py-3">
+                  <li key={n.id} className="rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-3">
                     <div className="flex items-start justify-between gap-3">
-                      <p className="whitespace-pre-wrap text-sm text-slate-200">{n.body}</p>
+                      <p className="whitespace-pre-wrap text-sm text-stone-200">{n.body}</p>
                       <button
                         onClick={() => removeNote(n.id)}
-                        className="shrink-0 text-xs text-slate-500 hover:text-rose-400"
+                        className="shrink-0 text-xs text-stone-500 hover:text-rose-400"
                         aria-label="Delete note"
                       >
                         Delete
                       </button>
                     </div>
-                    <div className="mt-1 text-xs text-slate-600">{fmtDate(n.created_at)}</div>
+                    <div className="mt-1 text-xs text-stone-600">{fmtDate(n.created_at)}</div>
                   </li>
                 ))}
               </ul>
@@ -371,11 +371,11 @@ export default function EntityDetailPage() {
             <input className={input} value={form.registration_number} onChange={(e) => setForm({ ...form, registration_number: e.target.value })} />
           </div>
           <div className="flex gap-6">
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={form.is_natural_person} onChange={(e) => setForm({ ...form, is_natural_person: e.target.checked })} className="accent-indigo-500" />
               Natural person
             </label>
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={form.is_target} onChange={(e) => setForm({ ...form, is_target: e.target.checked })} className="accent-indigo-500" />
               Target entity
             </label>

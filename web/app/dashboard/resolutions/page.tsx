@@ -199,8 +199,8 @@ export default function ResolutionsPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Resolutions</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Resolutions</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Run ownership resolution over a case graph and review every historical run.
           </p>
         </div>
@@ -208,7 +208,7 @@ export default function ResolutionsPage() {
           <select
             value={workspaceId}
             onChange={(e) => setWorkspaceId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {workspaces.length === 0 && <option value="">No workspaces</option>}
             {workspaces.map((w) => (
@@ -221,7 +221,7 @@ export default function ResolutionsPage() {
             value={caseId}
             onChange={(e) => setCaseId(e.target.value)}
             disabled={cases.length === 0}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
           >
             {cases.length === 0 && <option value="">No cases</option>}
             {cases.map((c) => (
@@ -282,10 +282,10 @@ export default function ResolutionsPage() {
           <Card>
             <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-sm font-semibold text-slate-200">
+                <h2 className="text-sm font-semibold text-stone-200">
                   Resolution history
                   {activeCase && (
-                    <span className="ml-2 font-normal text-slate-500">
+                    <span className="ml-2 font-normal text-stone-500">
                       for {activeCase.name}
                       {typeof activeCase.threshold === 'number'
                         ? ` (threshold ${activeCase.threshold}%)`
@@ -298,7 +298,7 @@ export default function ResolutionsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by id, hash, status"
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-72"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-72"
               />
             </CardHeader>
             <CardBody className="p-0">
@@ -344,7 +344,7 @@ export default function ResolutionsPage() {
                               {r.id.slice(0, 8)}
                             </Link>
                             {r.inputs_hash && (
-                              <div className="mt-0.5 font-mono text-[10px] text-slate-600">
+                              <div className="mt-0.5 font-mono text-[10px] text-stone-600">
                                 {r.inputs_hash.slice(0, 12)}
                               </div>
                             )}
@@ -357,14 +357,14 @@ export default function ResolutionsPage() {
                             <Badge tone="amber">{r.control_count}</Badge>
                           </TD>
                           <TD>
-                            {wc > 0 ? <Badge tone="rose">{wc}</Badge> : <span className="text-slate-600">0</span>}
+                            {wc > 0 ? <Badge tone="rose">{wc}</Badge> : <span className="text-stone-600">0</span>}
                           </TD>
                           <TD>
                             <Badge tone={r.status === 'complete' ? 'green' : 'slate'}>
                               {r.status || 'complete'}
                             </Badge>
                           </TD>
-                          <TD className="text-xs text-slate-500">{fmtDate(r.created_at)}</TD>
+                          <TD className="text-xs text-stone-500">{fmtDate(r.created_at)}</TD>
                           <TD className="text-right">
                             <div className="flex justify-end gap-2">
                               <Link href={`/dashboard/resolutions/${r.id}`}>
@@ -407,9 +407,9 @@ export default function ResolutionsPage() {
           </>
         }
       >
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-stone-400">
           This permanently deletes resolution{' '}
-          <span className="font-mono text-slate-200">{deleteTarget?.id.slice(0, 8)}</span> along with
+          <span className="font-mono text-stone-200">{deleteTarget?.id.slice(0, 8)}</span> along with
           its resolved owners and ownership paths. This cannot be undone.
         </p>
       </Modal>

@@ -240,8 +240,8 @@ export default function FiledSetPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Filed Owner Set</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Filed Owner Set</h1>
+          <p className="mt-1 text-sm text-stone-500">
             The previously filed or declared beneficial-owner set used as the baseline for discrepancy detection.
           </p>
         </div>
@@ -270,11 +270,11 @@ export default function FiledSetPage() {
         <>
           <Card>
             <CardBody className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <label className="text-xs font-medium uppercase tracking-wide text-slate-500">Case</label>
+              <label className="text-xs font-medium uppercase tracking-wide text-stone-500">Case</label>
               <select
                 value={caseId}
                 onChange={(e) => setCaseId(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none sm:w-80"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none sm:w-80"
               >
                 {cases.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -300,15 +300,15 @@ export default function FiledSetPage() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search name or filing reference..."
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none sm:w-64"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none sm:w-64"
                 />
-                <div className="flex rounded-lg border border-slate-700 bg-slate-950 p-0.5">
+                <div className="flex rounded-lg border border-stone-700 bg-stone-950 p-0.5">
                   {(['all', 'control', 'none'] as const).map((f) => (
                     <button
                       key={f}
                       onClick={() => setControlFilter(f)}
                       className={`rounded-md px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
-                        controlFilter === f ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'
+                        controlFilter === f ? 'bg-indigo-600 text-white' : 'text-stone-400 hover:text-stone-200'
                       }`}
                     >
                       {f === 'none' ? 'No control' : f}
@@ -316,7 +316,7 @@ export default function FiledSetPage() {
                   ))}
                 </div>
               </div>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-stone-500">
                 {filtered.length} of {owners.length} shown
               </span>
             </CardHeader>
@@ -355,16 +355,16 @@ export default function FiledSetPage() {
                   <TBody>
                     {filtered.map((o) => (
                       <TR key={o.id}>
-                        <TD className="font-medium text-slate-100">{o.person_name}</TD>
+                        <TD className="font-medium text-stone-100">{o.person_name}</TD>
                         <TD>
                           <div className="flex items-center gap-2">
-                            <div className="h-1.5 w-24 overflow-hidden rounded-full bg-slate-800">
+                            <div className="h-1.5 w-24 overflow-hidden rounded-full bg-stone-800">
                               <div
                                 className="h-full rounded-full bg-indigo-500"
                                 style={{ width: `${Math.min(100, Math.max(0, o.declared_ownership ?? 0))}%` }}
                               />
                             </div>
-                            <span className="tabular-nums text-slate-300">{pct(o.declared_ownership)}</span>
+                            <span className="tabular-nums text-stone-300">{pct(o.declared_ownership)}</span>
                           </div>
                         </TD>
                         <TD>
@@ -380,7 +380,7 @@ export default function FiledSetPage() {
                             )}
                           </button>
                         </TD>
-                        <TD className="text-slate-400">{o.filing_reference || '—'}</TD>
+                        <TD className="text-stone-400">{o.filing_reference || '—'}</TD>
                         <TD className="text-right">
                           <div className="flex justify-end gap-2">
                             <Button variant="ghost" className="px-2 py-1 text-xs" onClick={() => openEdit(o)}>
@@ -428,18 +428,18 @@ export default function FiledSetPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Person Name
             </label>
             <input
               value={form.person_name}
               onChange={(e) => setForm({ ...form, person_name: e.target.value })}
               placeholder="e.g. Jane Doe"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Declared Ownership (%)
             </label>
             <input
@@ -450,26 +450,26 @@ export default function FiledSetPage() {
               value={form.declared_ownership}
               onChange={(e) => setForm({ ...form, declared_ownership: e.target.value })}
               placeholder="0"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Filing Reference
             </label>
             <input
               value={form.filing_reference}
               onChange={(e) => setForm({ ...form, filing_reference: e.target.value })}
               placeholder="e.g. BOI-2024-00123"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
-          <label className="flex items-center gap-2 text-sm text-slate-300">
+          <label className="flex items-center gap-2 text-sm text-stone-300">
             <input
               type="checkbox"
               checked={form.declared_control}
               onChange={(e) => setForm({ ...form, declared_control: e.target.checked })}
-              className="h-4 w-4 rounded border-slate-700 bg-slate-950 text-indigo-600 focus:ring-indigo-500"
+              className="h-4 w-4 rounded border-stone-700 bg-stone-950 text-indigo-600 focus:ring-indigo-500"
             />
             Declared as exercising substantial control
           </label>

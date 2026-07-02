@@ -192,8 +192,8 @@ export default function EntityRegistryPage() {
   if (loadingWs) return <PageSpinner label="Loading registry..." />
 
   const input =
-    'w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:border-indigo-500 focus:outline-none'
-  const labelCls = 'mb-1 block text-xs font-medium text-slate-400'
+    'w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-100 placeholder-stone-600 focus:border-indigo-500 focus:outline-none'
+  const labelCls = 'mb-1 block text-xs font-medium text-stone-400'
 
   if (workspaces.length === 0) {
     return (
@@ -209,8 +209,8 @@ export default function EntityRegistryPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-100">Entity Registry</h1>
-          <p className="text-sm text-slate-500">Every party tracked across cases in this workspace.</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-stone-100">Entity Registry</h1>
+          <p className="text-sm text-stone-500">Every party tracked across cases in this workspace.</p>
         </div>
         <div className="flex items-center gap-2">
           {workspaces.length > 1 && (
@@ -248,14 +248,14 @@ export default function EntityRegistryPage() {
                 key={k}
                 onClick={() => setKindFilter(k)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
-                  kindFilter === k ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200'
+                  kindFilter === k ? 'bg-indigo-600 text-white' : 'bg-stone-800 text-stone-400 hover:text-stone-200'
                 }`}
               >
                 {k}
               </button>
             ))}
           </div>
-          <span className="ml-auto text-xs text-slate-500">{filtered.length} of {entities.length}</span>
+          <span className="ml-auto text-xs text-stone-500">{filtered.length} of {entities.length}</span>
         </CardBody>
       </Card>
 
@@ -287,9 +287,9 @@ export default function EntityRegistryPage() {
               {filtered.map((e) => (
                 <TR key={e.id}>
                   <TD>
-                    <Link href={`/dashboard/entities/${e.id}`} className="font-medium text-slate-100 hover:text-indigo-300">{e.name}</Link>
+                    <Link href={`/dashboard/entities/${e.id}`} className="font-medium text-stone-100 hover:text-indigo-300">{e.name}</Link>
                   </TD>
-                  <TD className="text-slate-400">{caseName.get(e.case_id) || '—'}</TD>
+                  <TD className="text-stone-400">{caseName.get(e.case_id) || '—'}</TD>
                   <TD>{e.entity_type || '—'}</TD>
                   <TD>{e.jurisdiction || '—'}</TD>
                   <TD>{e.registration_number || '—'}</TD>
@@ -353,11 +353,11 @@ export default function EntityRegistryPage() {
             <input className={input} value={form.registration_number} onChange={(e) => setForm({ ...form, registration_number: e.target.value })} placeholder="optional" />
           </div>
           <div className="flex gap-6">
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={form.is_natural_person} onChange={(e) => setForm({ ...form, is_natural_person: e.target.checked })} className="accent-indigo-500" />
               Natural person
             </label>
-            <label className="flex items-center gap-2 text-sm text-slate-300">
+            <label className="flex items-center gap-2 text-sm text-stone-300">
               <input type="checkbox" checked={form.is_target} onChange={(e) => setForm({ ...form, is_target: e.target.checked })} className="accent-indigo-500" />
               Target entity
             </label>

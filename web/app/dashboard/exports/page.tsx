@@ -246,8 +246,8 @@ export default function ExportsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Exports</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Exports</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Generate beneficial-ownership rosters and ownership-chain diagrams, then download them for filing.
           </p>
         </div>
@@ -255,7 +255,7 @@ export default function ExportsPage() {
           <select
             value={workspaceId}
             onChange={(e) => setWorkspaceId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {workspaces.length === 0 && <option value="">No workspaces</option>}
             {workspaces.map((w) => (
@@ -267,7 +267,7 @@ export default function ExportsPage() {
           <select
             value={caseId}
             onChange={(e) => setCaseId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {cases.length === 0 && <option value="">No cases</option>}
             {cases.map((c) => (
@@ -302,23 +302,23 @@ export default function ExportsPage() {
             {/* Roster generator */}
             <Card>
               <CardHeader>
-                <h2 className="text-base font-semibold text-slate-100">Generate BO roster</h2>
+                <h2 className="text-base font-semibold text-stone-100">Generate BO roster</h2>
               </CardHeader>
               <CardBody className="space-y-4">
                 {resolutions.length === 0 ? (
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-stone-500">
                     No resolutions in this case yet. Run a resolution first to build a beneficial-owner roster.
                   </p>
                 ) : (
                   <>
                     <div>
-                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                         Resolution
                       </label>
                       <select
                         value={rosterResolutionId}
                         onChange={(e) => setRosterResolutionId(e.target.value)}
-                        className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       >
                         {resolutions.map((r) => (
                           <option key={r.id} value={r.id}>
@@ -328,16 +328,16 @@ export default function ExportsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+                      <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                         Format
                       </label>
-                      <div className="inline-flex rounded-lg border border-slate-700 bg-slate-950 p-0.5">
+                      <div className="inline-flex rounded-lg border border-stone-700 bg-stone-950 p-0.5">
                         {(['json', 'csv'] as RosterFormat[]).map((f) => (
                           <button
                             key={f}
                             onClick={() => setRosterFormat(f)}
                             className={`rounded-md px-3 py-1.5 text-xs font-medium uppercase transition-colors ${
-                              rosterFormat === f ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'
+                              rosterFormat === f ? 'bg-indigo-600 text-white' : 'text-stone-400 hover:text-stone-200'
                             }`}
                           >
                             {f}
@@ -356,21 +356,21 @@ export default function ExportsPage() {
             {/* Diagram generator */}
             <Card>
               <CardHeader>
-                <h2 className="text-base font-semibold text-slate-100">Generate ownership-chain diagram</h2>
+                <h2 className="text-base font-semibold text-stone-100">Generate ownership-chain diagram</h2>
               </CardHeader>
               <CardBody className="space-y-4">
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-stone-500">
                   Renders the current case graph as a layered ownership-chain diagram you can drop into a report.
                 </p>
                 <div>
-                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Format</label>
-                  <div className="inline-flex rounded-lg border border-slate-700 bg-slate-950 p-0.5">
+                  <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Format</label>
+                  <div className="inline-flex rounded-lg border border-stone-700 bg-stone-950 p-0.5">
                     {(['dot', 'svg', 'json'] as DiagramFormat[]).map((f) => (
                       <button
                         key={f}
                         onClick={() => setDiagramFormat(f)}
                         className={`rounded-md px-3 py-1.5 text-xs font-medium uppercase transition-colors ${
-                          diagramFormat === f ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'
+                          diagramFormat === f ? 'bg-indigo-600 text-white' : 'text-stone-400 hover:text-stone-200'
                         }`}
                       >
                         {f}
@@ -396,12 +396,12 @@ export default function ExportsPage() {
             <Card>
               <CardHeader className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <h2 className="text-base font-semibold text-slate-100">Export preview</h2>
+                  <h2 className="text-base font-semibold text-stone-100">Export preview</h2>
                   <Badge tone={typeTone(selected.export_type)}>{selected.export_type}</Badge>
                   <Badge tone="slate">{selected.format?.toUpperCase()}</Badge>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-500">{fmtDate(selected.created_at)}</span>
+                  <span className="text-xs text-stone-500">{fmtDate(selected.created_at)}</span>
                   <Button
                     variant="secondary"
                     className="px-3 py-1.5 text-xs"
@@ -420,12 +420,12 @@ export default function ExportsPage() {
                   <EmptyState title="No content" description="This export record has no stored content." />
                 ) : selectedIsSvg ? (
                   <div
-                    className="overflow-auto rounded-lg border border-slate-800 bg-white p-3"
+                    className="overflow-auto rounded-lg border border-stone-800 bg-white p-3"
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: selected.content }}
                   />
                 ) : (
-                  <pre className="max-h-[28rem] overflow-auto rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 text-xs text-slate-300">
+                  <pre className="max-h-[28rem] overflow-auto rounded-lg border border-stone-800 bg-stone-950/60 px-4 py-3 text-xs text-stone-300">
                     {selected.content}
                   </pre>
                 )}
@@ -436,7 +436,7 @@ export default function ExportsPage() {
           {/* Past exports */}
           <Card>
             <CardHeader>
-              <h2 className="text-base font-semibold text-slate-100">Past exports</h2>
+              <h2 className="text-base font-semibold text-stone-100">Past exports</h2>
             </CardHeader>
             <CardBody>
               {exports.length === 0 ? (
@@ -461,11 +461,11 @@ export default function ExportsPage() {
                         <TD>
                           <Badge tone={typeTone(e.export_type)}>{e.export_type}</Badge>
                         </TD>
-                        <TD className="uppercase text-slate-400">{e.format}</TD>
-                        <TD className="font-mono text-xs text-slate-400">
+                        <TD className="uppercase text-stone-400">{e.format}</TD>
+                        <TD className="font-mono text-xs text-stone-400">
                           {e.resolution_id ? `${e.resolution_id.slice(0, 8)}…` : '—'}
                         </TD>
-                        <TD className="text-xs text-slate-500">{fmtDate(e.created_at)}</TD>
+                        <TD className="text-xs text-stone-500">{fmtDate(e.created_at)}</TD>
                         <TD className="text-right">
                           <Button variant="secondary" className="px-3 py-1.5 text-xs" onClick={() => openExport(e.id)}>
                             View

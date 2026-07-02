@@ -27,37 +27,37 @@ export default function SignIn() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+    <main className="min-h-screen bg-stone-950 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-black text-white">U</span>
-            <span className="text-xl font-bold text-slate-100">UboOwnershipTreeResolver</span>
+            <span className="text-xl font-bold text-stone-100">UboOwnershipTreeResolver</span>
           </Link>
-          <h1 className="text-2xl font-bold mt-6 text-slate-100">Sign in to your account</h1>
-          <p className="mt-1 text-sm text-slate-500">Resolve beneficial owners with deterministic, auditable math.</p>
+          <h1 className="text-2xl font-bold mt-6 text-stone-100">Sign in to your account</h1>
+          <p className="mt-1 text-sm text-stone-500">Resolve beneficial owners with deterministic, auditable math.</p>
         </div>
-        <form onSubmit={handleSubmit} className="bg-slate-900 rounded-xl border border-slate-800 p-8 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-stone-900 rounded-xl border border-stone-800 p-8 space-y-4">
           {error && (
             <div className="bg-rose-900/30 border border-rose-700 text-rose-300 rounded-lg p-3 text-sm">{error}</div>
           )}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Email</label>
+            <label className="block text-sm font-medium text-stone-300 mb-1">Email</label>
             <input
               name="email"
               type="email"
               required
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-white placeholder-stone-500 focus:outline-none focus:border-indigo-500"
               placeholder="you@example.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Password</label>
+            <label className="block text-sm font-medium text-stone-300 mb-1">Password</label>
             <input
               name="password"
               type="password"
               required
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500"
+              className="w-full bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500"
             />
           </div>
           <button
@@ -67,7 +67,7 @@ export default function SignIn() {
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
-          <p className="text-center text-slate-400 text-sm">
+          <p className="text-center text-stone-400 text-sm">
             No account?{' '}
             <Link href="/auth/sign-up" className="text-indigo-400 hover:text-indigo-300">
               Sign up

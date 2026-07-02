@@ -164,8 +164,8 @@ export default function DashboardOverviewPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-100">Overview</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-bold tracking-tight text-stone-100">Overview</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Beneficial-ownership cases, resolution health, and compliance alerts.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default function DashboardOverviewPage() {
             <select
               value={activeWs}
               onChange={(e) => setActiveWs(e.target.value)}
-              className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             >
               {workspaces.map((w) => (
                 <option key={w.id} value={w.id}>
@@ -241,7 +241,7 @@ export default function DashboardOverviewPage() {
 
           <Card>
             <CardHeader className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-slate-200">Recent cases</h2>
+              <h2 className="text-sm font-semibold text-stone-200">Recent cases</h2>
               <Link href="/dashboard/cases" className="text-xs font-medium text-indigo-400 hover:text-indigo-300">
                 View all
               </Link>
@@ -275,7 +275,7 @@ export default function DashboardOverviewPage() {
                         <TD>
                           <Link
                             href={`/dashboard/cases/${c.id}`}
-                            className="font-medium text-slate-100 hover:text-indigo-300"
+                            className="font-medium text-stone-100 hover:text-indigo-300"
                           >
                             {c.name}
                           </Link>
@@ -284,7 +284,7 @@ export default function DashboardOverviewPage() {
                           <Badge tone={statusTone(c.status)}>{c.status ?? 'draft'}</Badge>
                         </TD>
                         <TD className="tabular-nums">{fmtPct(c.threshold)}</TD>
-                        <TD className="text-slate-500">{fmtDate(c.updated_at ?? c.created_at)}</TD>
+                        <TD className="text-stone-500">{fmtDate(c.updated_at ?? c.created_at)}</TD>
                       </TR>
                     ))}
                   </TBody>
@@ -296,23 +296,23 @@ export default function DashboardOverviewPage() {
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
             <Card>
               <CardHeader className="flex items-center justify-between">
-                <h2 className="text-sm font-semibold text-slate-200">Near-threshold alerts</h2>
+                <h2 className="text-sm font-semibold text-stone-200">Near-threshold alerts</h2>
                 <Badge tone="amber">{nearAlerts.length}</Badge>
               </CardHeader>
               <CardBody className="p-0">
                 {nearAlerts.length === 0 ? (
-                  <div className="px-5 py-8 text-center text-sm text-slate-500">
+                  <div className="px-5 py-8 text-center text-sm text-stone-500">
                     No owners sitting near the reporting threshold.
                   </div>
                 ) : (
-                  <ul className="divide-y divide-slate-800">
+                  <ul className="divide-y divide-stone-800">
                     {nearAlerts.map((a, i) => (
                       <li key={i} className="flex items-center justify-between gap-3 px-5 py-3">
                         <div className="min-w-0">
-                          <div className="truncate text-sm font-medium text-slate-100">
+                          <div className="truncate text-sm font-medium text-stone-100">
                             {a.person_name ?? 'Unknown person'}
                           </div>
-                          <div className="truncate text-xs text-slate-500">
+                          <div className="truncate text-xs text-stone-500">
                             {a.case_id ? (
                               <Link href={`/dashboard/cases/${a.case_id}`} className="hover:text-indigo-300">
                                 {a.case_name ?? 'View case'}
@@ -326,7 +326,7 @@ export default function DashboardOverviewPage() {
                           <span className="text-sm font-semibold tabular-nums text-amber-300">
                             {fmtPct(a.effective_ownership)}
                           </span>
-                          <span className="text-xs text-slate-500">/ {fmtPct(a.threshold)}</span>
+                          <span className="text-xs text-stone-500">/ {fmtPct(a.threshold)}</span>
                         </div>
                       </li>
                     ))}
@@ -337,26 +337,26 @@ export default function DashboardOverviewPage() {
 
             <Card>
               <CardHeader className="flex items-center justify-between">
-                <h2 className="text-sm font-semibold text-slate-200">Discrepancy alerts</h2>
+                <h2 className="text-sm font-semibold text-stone-200">Discrepancy alerts</h2>
                 <Badge tone="rose">{discAlerts.length}</Badge>
               </CardHeader>
               <CardBody className="p-0">
                 {discAlerts.length === 0 ? (
-                  <div className="px-5 py-8 text-center text-sm text-slate-500">
+                  <div className="px-5 py-8 text-center text-sm text-stone-500">
                     No mismatches between computed and filed ownership.
                   </div>
                 ) : (
-                  <ul className="divide-y divide-slate-800">
+                  <ul className="divide-y divide-stone-800">
                     {discAlerts.map((d, i) => (
                       <li key={i} className="flex items-center justify-between gap-3 px-5 py-3">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="truncate text-sm font-medium text-slate-100">
+                            <span className="truncate text-sm font-medium text-stone-100">
                               {d.person_name ?? 'Unknown person'}
                             </span>
                             <Badge tone={severityTone(d.severity)}>{d.severity ?? 'info'}</Badge>
                           </div>
-                          <div className="truncate text-xs text-slate-500">
+                          <div className="truncate text-xs text-stone-500">
                             {d.kind ?? 'discrepancy'}
                             {d.case_id ? (
                               <>
@@ -368,12 +368,12 @@ export default function DashboardOverviewPage() {
                             ) : null}
                           </div>
                         </div>
-                        <div className="whitespace-nowrap text-right text-xs text-slate-400">
+                        <div className="whitespace-nowrap text-right text-xs text-stone-400">
                           <div>
-                            computed <span className="font-semibold text-slate-200">{fmtPct(d.computed_value)}</span>
+                            computed <span className="font-semibold text-stone-200">{fmtPct(d.computed_value)}</span>
                           </div>
                           <div>
-                            filed <span className="font-semibold text-slate-200">{fmtPct(d.filed_value)}</span>
+                            filed <span className="font-semibold text-stone-200">{fmtPct(d.filed_value)}</span>
                           </div>
                         </div>
                       </li>

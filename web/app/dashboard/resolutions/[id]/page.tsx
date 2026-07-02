@@ -182,10 +182,10 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
         </Link>
         <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="font-mono text-xl font-semibold text-slate-100">
+            <h1 className="font-mono text-xl font-semibold text-stone-100">
               Resolution {resolution.id.slice(0, 8)}
             </h1>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-stone-500">
               Threshold {resolution.threshold}% ·{' '}
               {resolution.created_at ? new Date(resolution.created_at).toLocaleString() : 'unknown date'}
             </p>
@@ -246,7 +246,7 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
 
       <Card>
         <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-sm font-semibold text-slate-200">Resolved beneficial owners</h2>
+          <h2 className="text-sm font-semibold text-stone-200">Resolved beneficial owners</h2>
           <div className="flex flex-wrap items-center gap-2">
             {filters.map((f) => (
               <button
@@ -255,7 +255,7 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                   filter === f.key
                     ? 'border-indigo-500 bg-indigo-500/15 text-indigo-200'
-                    : 'border-slate-700 text-slate-400 hover:border-slate-600 hover:text-slate-200'
+                    : 'border-stone-700 text-stone-400 hover:border-stone-600 hover:text-stone-200'
                 }`}
               >
                 {f.label}
@@ -265,7 +265,7 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search name"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-1.5 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-48"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-1.5 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-48"
             />
           </div>
         </CardHeader>
@@ -299,26 +299,26 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
                   return (
                     <TR key={o.id}>
                       <TD>
-                        <div className="font-medium text-slate-100">{o.person_name}</div>
-                        <div className="font-mono text-[10px] text-slate-600">
+                        <div className="font-medium text-stone-100">{o.person_name}</div>
+                        <div className="font-mono text-[10px] text-stone-600">
                           {o.person_entity_id.slice(0, 8)}
                         </div>
                       </TD>
                       <TD>
                         <div className="flex items-center gap-3">
-                          <div className="h-2 w-28 overflow-hidden rounded-full bg-slate-800">
+                          <div className="h-2 w-28 overflow-hidden rounded-full bg-stone-800">
                             <div
                               className={`h-full rounded-full ${
                                 o.meets_ownership_threshold
                                   ? 'bg-emerald-500'
                                   : o.near_threshold
                                     ? 'bg-amber-500'
-                                    : 'bg-slate-600'
+                                    : 'bg-stone-600'
                               }`}
                               style={{ width: `${barWidth}%` }}
                             />
                           </div>
-                          <span className="tabular-nums text-slate-100">{pct.toFixed(2)}%</span>
+                          <span className="tabular-nums text-stone-100">{pct.toFixed(2)}%</span>
                         </div>
                       </TD>
                       <TD>
@@ -328,12 +328,12 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
                           {o.near_threshold && <Badge tone="rose">Near</Badge>}
                           {!o.meets_ownership_threshold &&
                             !o.meets_substantial_control &&
-                            !o.near_threshold && <span className="text-xs text-slate-600">—</span>}
+                            !o.near_threshold && <span className="text-xs text-stone-600">—</span>}
                         </div>
                       </TD>
                       <TD>
                         {ownerPaths.length === 0 ? (
-                          <span className="text-xs text-slate-600">No paths</span>
+                          <span className="text-xs text-stone-600">No paths</span>
                         ) : (
                           <div className="space-y-1">
                             {ownerPaths.slice(0, 4).map((p) => {
@@ -341,7 +341,7 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
                               return (
                                 <div
                                   key={p.id}
-                                  className="flex items-center gap-2 text-xs text-slate-400"
+                                  className="flex items-center gap-2 text-xs text-stone-400"
                                 >
                                   <span className="font-mono tabular-nums text-indigo-300">
                                     {(p.path_percentage || 0).toFixed(2)}%
@@ -353,7 +353,7 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
                               )
                             })}
                             {ownerPaths.length > 4 && (
-                              <div className="text-[10px] text-slate-600">
+                              <div className="text-[10px] text-stone-600">
                                 +{ownerPaths.length - 4} more
                               </div>
                             )}
@@ -371,13 +371,13 @@ export default function ResolutionDetailPage({ params }: { params: Promise<{ id:
 
       <Card>
         <CardHeader>
-          <h2 className="text-sm font-semibold text-slate-200">Inputs hash</h2>
+          <h2 className="text-sm font-semibold text-stone-200">Inputs hash</h2>
         </CardHeader>
         <CardBody>
-          <code className="break-all font-mono text-xs text-slate-400">
+          <code className="break-all font-mono text-xs text-stone-400">
             {resolution.inputs_hash || 'n/a'}
           </code>
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-xs text-stone-500">
             The inputs hash fingerprints the entity/edge graph at resolution time. Two resolutions
             with the same hash were computed from an identical ownership structure.
           </p>

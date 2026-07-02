@@ -250,13 +250,13 @@ export default function PathsExplorerPage() {
       <Card>
         <CardBody className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6">
           <div className="flex-1">
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Workspace
             </label>
             <select
               value={workspaceId}
               onChange={(e) => setWorkspaceId(e.target.value)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             >
               {workspaces.map((w) => (
                 <option key={w.id} value={w.id}>
@@ -266,14 +266,14 @@ export default function PathsExplorerPage() {
             </select>
           </div>
           <div className="flex-1">
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Resolution
             </label>
             <select
               value={resolutionId}
               onChange={(e) => setResolutionId(e.target.value)}
               disabled={resLoading || !resolutions.length}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
             >
               {resLoading && <option>Loading...</option>}
               {!resLoading && !resolutions.length && <option value="">No resolutions</option>}
@@ -310,12 +310,12 @@ export default function PathsExplorerPage() {
             {/* owner list */}
             <Card className="overflow-hidden">
               <CardHeader className="space-y-3">
-                <div className="text-sm font-semibold text-slate-100">People</div>
+                <div className="text-sm font-semibold text-stone-100">People</div>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search by name..."
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
                 />
                 <div className="flex flex-wrap gap-1.5">
                   {(['all', 'qualifying', 'near', 'control'] as const).map((f) => (
@@ -325,7 +325,7 @@ export default function PathsExplorerPage() {
                       className={`rounded-full border px-2.5 py-0.5 text-xs font-medium capitalize transition-colors ${
                         filter === f
                           ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                          : 'border-slate-700 bg-slate-800/50 text-slate-400 hover:text-slate-200'
+                          : 'border-stone-700 bg-stone-800/50 text-stone-400 hover:text-stone-200'
                       }`}
                     >
                       {f}
@@ -339,19 +339,19 @@ export default function PathsExplorerPage() {
                     <Spinner label="Loading owners..." />
                   </div>
                 ) : filteredOwners.length === 0 ? (
-                  <div className="px-5 py-10 text-center text-sm text-slate-500">No matching people.</div>
+                  <div className="px-5 py-10 text-center text-sm text-stone-500">No matching people.</div>
                 ) : (
-                  <ul className="divide-y divide-slate-800">
+                  <ul className="divide-y divide-stone-800">
                     {filteredOwners.map((o) => (
                       <li key={o.id}>
                         <button
                           onClick={() => setSelectedOwnerId(o.id)}
                           className={`flex w-full items-center justify-between gap-2 px-5 py-3 text-left transition-colors ${
-                            o.id === selectedOwnerId ? 'bg-indigo-500/10' : 'hover:bg-slate-800/50'
+                            o.id === selectedOwnerId ? 'bg-indigo-500/10' : 'hover:bg-stone-800/50'
                           }`}
                         >
                           <div className="min-w-0">
-                            <div className="truncate text-sm font-medium text-slate-100">{o.person_name}</div>
+                            <div className="truncate text-sm font-medium text-stone-100">{o.person_name}</div>
                             <div className="mt-0.5 flex flex-wrap gap-1">
                               {o.meets_ownership_threshold && <Badge tone="green">Qualifying</Badge>}
                               {o.meets_substantial_control && <Badge tone="indigo">Control</Badge>}
@@ -359,7 +359,7 @@ export default function PathsExplorerPage() {
                             </div>
                           </div>
                           <span className={`shrink-0 text-sm font-semibold tabular-nums ${
-                            ownerTone(o) === 'green' ? 'text-emerald-300' : ownerTone(o) === 'amber' ? 'text-amber-300' : 'text-slate-300'
+                            ownerTone(o) === 'green' ? 'text-emerald-300' : ownerTone(o) === 'amber' ? 'text-amber-300' : 'text-stone-300'
                           }`}>
                             {pct(o.effective_ownership)}
                           </span>
@@ -378,8 +378,8 @@ export default function PathsExplorerPage() {
                   <Card>
                     <CardBody className="flex flex-wrap items-center justify-between gap-4">
                       <div>
-                        <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Selected person</div>
-                        <div className="mt-1 text-lg font-semibold text-slate-100">{selectedOwner.person_name}</div>
+                        <div className="text-xs font-medium uppercase tracking-wide text-stone-500">Selected person</div>
+                        <div className="mt-1 text-lg font-semibold text-stone-100">{selectedOwner.person_name}</div>
                         <div className="mt-2 flex flex-wrap gap-1.5">
                           {selectedOwner.meets_ownership_threshold && <Badge tone="green">Meets ownership threshold</Badge>}
                           {selectedOwner.meets_substantial_control && <Badge tone="indigo">Substantial control</Badge>}
@@ -387,11 +387,11 @@ export default function PathsExplorerPage() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Effective ownership</div>
+                        <div className="text-xs font-medium uppercase tracking-wide text-stone-500">Effective ownership</div>
                         <div className="mt-1 text-3xl font-semibold tabular-nums text-indigo-300">
                           {pct(selectedOwner.effective_ownership)}
                         </div>
-                        <div className="mt-1 text-xs text-slate-500">
+                        <div className="mt-1 text-xs text-stone-500">
                           {ownerPaths.length} contributing path{ownerPaths.length === 1 ? '' : 's'} · Σ {pct(pathsSum)}
                         </div>
                       </div>
@@ -399,7 +399,7 @@ export default function PathsExplorerPage() {
                   </Card>
 
                   <Card>
-                    <CardHeader className="text-sm font-semibold text-slate-100">
+                    <CardHeader className="text-sm font-semibold text-stone-100">
                       Ownership paths (per-path multiplied percentages)
                     </CardHeader>
                     {pathsLoading ? (
@@ -421,9 +421,9 @@ export default function PathsExplorerPage() {
                           const steps = labels.length ? labels : ids
                           const barW = maxPathPct > 0 ? (Number(p.path_percentage) / maxPathPct) * 100 : 0
                           return (
-                            <div key={p.id} className="rounded-lg border border-slate-800 bg-slate-950/40 p-4">
+                            <div key={p.id} className="rounded-lg border border-stone-800 bg-stone-950/40 p-4">
                               <div className="mb-2 flex items-center justify-between gap-3">
-                                <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                                <span className="text-xs font-medium uppercase tracking-wide text-stone-500">
                                   Path {idx + 1}
                                 </span>
                                 <span className="text-sm font-semibold tabular-nums text-indigo-300">
@@ -434,11 +434,11 @@ export default function PathsExplorerPage() {
                               <div className="flex flex-wrap items-center gap-1.5">
                                 {steps.map((label, i) => (
                                   <span key={i} className="flex items-center gap-1.5">
-                                    <span className="rounded-md border border-slate-700 bg-slate-800/70 px-2 py-1 text-xs text-slate-200">
+                                    <span className="rounded-md border border-stone-700 bg-stone-800/70 px-2 py-1 text-xs text-stone-200">
                                       {String(label)}
                                     </span>
                                     {i < steps.length - 1 && (
-                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-600">
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-stone-600">
                                         <path d="M5 12h14M13 6l6 6-6 6" />
                                       </svg>
                                     )}
@@ -446,7 +446,7 @@ export default function PathsExplorerPage() {
                                 ))}
                               </div>
                               {/* contribution bar */}
-                              <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+                              <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-stone-800">
                                 <div
                                   className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-indigo-400"
                                   style={{ width: `${Math.max(barW, 2)}%` }}
@@ -462,7 +462,7 @@ export default function PathsExplorerPage() {
                   {/* breakdown table */}
                   {ownerPaths.length > 0 && (
                     <Card className="overflow-hidden">
-                      <CardHeader className="text-sm font-semibold text-slate-100">Path breakdown</CardHeader>
+                      <CardHeader className="text-sm font-semibold text-stone-100">Path breakdown</CardHeader>
                       <Table>
                         <THead>
                           <TR>
@@ -479,17 +479,17 @@ export default function PathsExplorerPage() {
                               <TR key={p.id}>
                                 <TD className="tabular-nums">{idx + 1}</TD>
                                 <TD className="tabular-nums">{steps.length}</TD>
-                                <TD className="text-slate-400">{steps.map(String).join(' → ')}</TD>
+                                <TD className="text-stone-400">{steps.map(String).join(' → ')}</TD>
                                 <TD className="text-right font-semibold tabular-nums text-indigo-300">
                                   {pct(p.path_percentage)}
                                 </TD>
                               </TR>
                             )
                           })}
-                          <TR className="bg-slate-900/60">
+                          <TR className="bg-stone-900/60">
                             <TD />
                             <TD />
-                            <TD className="font-medium text-slate-300">Sum of paths</TD>
+                            <TD className="font-medium text-stone-300">Sum of paths</TD>
                             <TD className="text-right font-semibold tabular-nums text-emerald-300">{pct(pathsSum)}</TD>
                           </TR>
                         </TBody>
@@ -514,8 +514,8 @@ export default function PathsExplorerPage() {
 function Header() {
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-slate-100">Paths Explorer</h1>
-      <p className="mt-1 text-sm text-slate-400">
+      <h1 className="text-2xl font-bold tracking-tight text-stone-100">Paths Explorer</h1>
+      <p className="mt-1 text-sm text-stone-400">
         Trace every ownership chain to each person and see the per-path multiplied percentage that rolls up to their
         effective ownership.
       </p>

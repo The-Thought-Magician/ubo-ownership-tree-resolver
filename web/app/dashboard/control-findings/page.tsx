@@ -255,8 +255,8 @@ export default function ControlFindingsPage() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-100">Control Findings</h1>
-          <p className="mt-1 text-sm text-slate-400">
+          <h1 className="text-2xl font-bold tracking-tight text-stone-100">Control Findings</h1>
+          <p className="mt-1 text-sm text-stone-400">
             Record substantial-control determinations against the FinCEN / KYB control criteria for each natural person.
           </p>
         </div>
@@ -278,11 +278,11 @@ export default function ControlFindingsPage() {
           <Card>
             <CardBody className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6">
               <div className="flex-1">
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Workspace</label>
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Workspace</label>
                 <select
                   value={workspaceId}
                   onChange={(e) => setWorkspaceId(e.target.value)}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 >
                   {workspaces.map((w) => (
                     <option key={w.id} value={w.id}>
@@ -292,12 +292,12 @@ export default function ControlFindingsPage() {
                 </select>
               </div>
               <div className="flex-1">
-                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Case</label>
+                <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Case</label>
                 <select
                   value={caseId}
                   onChange={(e) => setCaseId(e.target.value)}
                   disabled={casesLoading || !cases.length}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none disabled:opacity-50"
                 >
                   {casesLoading && <option>Loading...</option>}
                   {!casesLoading && !cases.length && <option value="">No cases</option>}
@@ -328,7 +328,7 @@ export default function ControlFindingsPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search criterion, basis, person..."
-                    className="w-full max-w-xs rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+                    className="w-full max-w-xs rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
                   />
                   <div className="flex flex-wrap gap-1.5">
                     {(['all', ...DETERMINATIONS] as const).map((d) => (
@@ -338,7 +338,7 @@ export default function ControlFindingsPage() {
                         className={`rounded-full border px-2.5 py-0.5 text-xs font-medium capitalize transition-colors ${
                           detFilter === d
                             ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                            : 'border-slate-700 bg-slate-800/50 text-slate-400 hover:text-slate-200'
+                            : 'border-stone-700 bg-stone-800/50 text-stone-400 hover:text-stone-200'
                         }`}
                       >
                         {d.replace('_', ' ')}
@@ -378,17 +378,17 @@ export default function ControlFindingsPage() {
                     <TBody>
                       {filtered.map((f) => (
                         <TR key={f.id}>
-                          <TD className="font-medium text-slate-100">{entityName(f.person_entity_id)}</TD>
+                          <TD className="font-medium text-stone-100">{entityName(f.person_entity_id)}</TD>
                           <TD>
                             <Link href={`/dashboard/control-findings/${f.id}`} className="text-indigo-300 hover:text-indigo-200">
                               {f.criterion}
                             </Link>
                           </TD>
-                          <TD className="max-w-xs truncate text-slate-400">{f.basis || '—'}</TD>
+                          <TD className="max-w-xs truncate text-stone-400">{f.basis || '—'}</TD>
                           <TD>
                             <Badge tone={determinationTone(f.determination)}>{f.determination.replace('_', ' ')}</Badge>
                           </TD>
-                          <TD className="whitespace-nowrap text-slate-500">
+                          <TD className="whitespace-nowrap text-stone-500">
                             {new Date(f.created_at).toLocaleDateString()}
                           </TD>
                           <TD className="text-right">
@@ -439,11 +439,11 @@ export default function ControlFindingsPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Person</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Person</label>
             <select
               value={form.person_entity_id}
               onChange={(e) => setForm({ ...form, person_entity_id: e.target.value })}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             >
               <option value="">Unassigned</option>
               {people.map((p) => (
@@ -457,12 +457,12 @@ export default function ControlFindingsPage() {
             )}
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Criterion</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Criterion</label>
             <input
               list="control-criteria"
               value={form.criterion}
               onChange={(e) => setForm({ ...form, criterion: e.target.value })}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
             <datalist id="control-criteria">
               {CRITERIA.map((c) => (
@@ -471,26 +471,26 @@ export default function ControlFindingsPage() {
             </datalist>
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Basis</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Basis</label>
             <input
               value={form.basis}
               onChange={(e) => setForm({ ...form, basis: e.target.value })}
               placeholder="e.g. Shareholders' agreement §4.2"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Rationale</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Rationale</label>
             <textarea
               value={form.rationale}
               onChange={(e) => setForm({ ...form, rationale: e.target.value })}
               rows={3}
               placeholder="Why this person does / does not exercise substantial control..."
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Determination</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Determination</label>
             <div className="flex flex-wrap gap-2">
               {DETERMINATIONS.map((d) => (
                 <button
@@ -500,7 +500,7 @@ export default function ControlFindingsPage() {
                   className={`rounded-lg border px-3 py-1.5 text-sm font-medium capitalize transition-colors ${
                     form.determination === d
                       ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                      : 'border-slate-700 bg-slate-800/50 text-slate-400 hover:text-slate-200'
+                      : 'border-stone-700 bg-stone-800/50 text-stone-400 hover:text-stone-200'
                   }`}
                 >
                   {d.replace('_', ' ')}

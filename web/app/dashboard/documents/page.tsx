@@ -303,8 +303,8 @@ export default function DocumentsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Documents</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Documents</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Evidence library for a case: registry extracts, shareholder registers, trust deeds, and supporting filings.
           </p>
         </div>
@@ -312,7 +312,7 @@ export default function DocumentsPage() {
           <select
             value={workspaceId}
             onChange={(e) => setWorkspaceId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {workspaces.length === 0 && <option value="">No workspaces</option>}
             {workspaces.map((w) => (
@@ -324,7 +324,7 @@ export default function DocumentsPage() {
           <select
             value={caseId}
             onChange={(e) => setCaseId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {cases.length === 0 && <option value="">No cases</option>}
             {cases.map((c) => (
@@ -356,17 +356,17 @@ export default function DocumentsPage() {
           <Card>
             <CardHeader className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex flex-1 flex-wrap items-center gap-3">
-                <h2 className="text-base font-semibold text-slate-100">Library</h2>
+                <h2 className="text-base font-semibold text-stone-100">Library</h2>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search title, url, content…"
-                  className="w-full max-w-xs rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full max-w-xs rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <select
                   value={typeFilter}
                   onChange={(e) => setTypeFilter(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">All types</option>
                   {DOC_TYPES.map((t) => (
@@ -403,7 +403,7 @@ export default function DocumentsPage() {
                           type="checkbox"
                           checked={allVisibleSelected}
                           onChange={toggleAll}
-                          className="h-4 w-4 rounded border-slate-600 bg-slate-800 text-indigo-500 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-stone-600 bg-stone-800 text-indigo-500 focus:ring-indigo-500"
                           aria-label="Select all"
                         />
                       </TH>
@@ -422,14 +422,14 @@ export default function DocumentsPage() {
                             type="checkbox"
                             checked={selected.has(d.id)}
                             onChange={() => toggle(d.id)}
-                            className="h-4 w-4 rounded border-slate-600 bg-slate-800 text-indigo-500 focus:ring-indigo-500"
+                            className="h-4 w-4 rounded border-stone-600 bg-stone-800 text-indigo-500 focus:ring-indigo-500"
                             aria-label={`Select ${d.title}`}
                           />
                         </TD>
                         <TD>
                           <button
                             onClick={() => setViewing(d)}
-                            className="text-left font-medium text-slate-200 hover:text-indigo-300"
+                            className="text-left font-medium text-stone-200 hover:text-indigo-300"
                           >
                             {d.title}
                           </button>
@@ -448,10 +448,10 @@ export default function DocumentsPage() {
                               Open
                             </a>
                           ) : (
-                            <span className="text-slate-600">—</span>
+                            <span className="text-stone-600">—</span>
                           )}
                         </TD>
-                        <TD className="text-xs text-slate-500">{fmtDate(d.created_at)}</TD>
+                        <TD className="text-xs text-stone-500">{fmtDate(d.created_at)}</TD>
                         <TD className="text-right">
                           <div className="flex justify-end gap-2">
                             <Button variant="secondary" className="px-3 py-1.5 text-xs" onClick={() => openEdit(d)}>
@@ -495,21 +495,21 @@ export default function DocumentsPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Title</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Title</label>
             <input
               value={form.title}
               onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
               placeholder="e.g. Companies House extract — Acme Holdings"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Type</label>
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Type</label>
               <select
                 value={form.doc_type}
                 onChange={(e) => setForm((f) => ({ ...f, doc_type: e.target.value }))}
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 {DOC_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -519,28 +519,28 @@ export default function DocumentsPage() {
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Entity ID (optional)
               </label>
               <input
                 value={form.entity_id}
                 onChange={(e) => setForm((f) => ({ ...f, entity_id: e.target.value }))}
                 placeholder="Link to a specific entity"
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">URL</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">URL</label>
             <input
               value={form.url}
               onChange={(e) => setForm((f) => ({ ...f, url: e.target.value }))}
               placeholder="https://…"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Content / notes
             </label>
             <textarea
@@ -548,7 +548,7 @@ export default function DocumentsPage() {
               onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))}
               rows={5}
               placeholder="Extracted text, key findings, or notes about this evidence."
-              className="w-full resize-y rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full resize-y rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
         </div>
@@ -570,11 +570,11 @@ export default function DocumentsPage() {
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <Badge tone={TYPE_TONE[viewing.doc_type ?? 'other'] ?? 'slate'}>{prettyType(viewing.doc_type)}</Badge>
-              <span className="text-xs text-slate-500">Added {fmtDate(viewing.created_at)}</span>
+              <span className="text-xs text-stone-500">Added {fmtDate(viewing.created_at)}</span>
             </div>
             {viewing.url && (
               <div>
-                <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Link</div>
+                <div className="text-xs font-medium uppercase tracking-wide text-stone-500">Link</div>
                 <a
                   href={viewing.url}
                   target="_blank"
@@ -586,13 +586,13 @@ export default function DocumentsPage() {
               </div>
             )}
             <div>
-              <div className="mb-1 text-xs font-medium uppercase tracking-wide text-slate-500">Content</div>
+              <div className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-500">Content</div>
               {viewing.content ? (
-                <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-sm text-slate-300">
+                <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-lg border border-stone-800 bg-stone-950/60 p-3 text-sm text-stone-300">
                   {viewing.content}
                 </pre>
               ) : (
-                <p className="text-sm text-slate-600">No content stored for this document.</p>
+                <p className="text-sm text-stone-600">No content stored for this document.</p>
               )}
             </div>
           </div>

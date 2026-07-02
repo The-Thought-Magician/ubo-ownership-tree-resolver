@@ -266,15 +266,15 @@ export default function CasesPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-100">Cases</h1>
-          <p className="mt-1 text-sm text-slate-500">Beneficial-ownership investigations in this workspace.</p>
+          <h1 className="text-2xl font-bold tracking-tight text-stone-100">Cases</h1>
+          <p className="mt-1 text-sm text-stone-500">Beneficial-ownership investigations in this workspace.</p>
         </div>
         <div className="flex items-center gap-2">
           {workspaces.length > 0 && (
             <select
               value={activeWs}
               onChange={(e) => setActiveWs(e.target.value)}
-              className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             >
               {workspaces.map((w) => (
                 <option key={w.id} value={w.id}>
@@ -316,13 +316,13 @@ export default function CasesPage() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search cases by name..."
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
                 />
               </div>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               >
                 <option value="">All statuses</option>
                 {STATUSES.map((s) => (
@@ -334,7 +334,7 @@ export default function CasesPage() {
               <select
                 value={assigneeFilter}
                 onChange={(e) => setAssigneeFilter(e.target.value)}
-                className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               >
                 <option value="">All assignees</option>
                 <option value="__unassigned__">Unassigned</option>
@@ -347,7 +347,7 @@ export default function CasesPage() {
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
                 disabled={tags.length === 0}
               >
                 <option value="">All tags</option>
@@ -362,7 +362,7 @@ export default function CasesPage() {
                   Clear
                 </Button>
               )}
-              <span className="text-xs text-slate-500 lg:ml-auto">
+              <span className="text-xs text-stone-500 lg:ml-auto">
                 {filtered.length} of {cases.length}
               </span>
             </CardBody>
@@ -397,23 +397,23 @@ export default function CasesPage() {
                       <TD>
                         <Link
                           href={`/dashboard/cases/${c.id}`}
-                          className="font-medium text-slate-100 hover:text-indigo-300"
+                          className="font-medium text-stone-100 hover:text-indigo-300"
                         >
                           {c.name}
                         </Link>
                         {c.description && (
-                          <div className="mt-0.5 max-w-xs truncate text-xs text-slate-500">{c.description}</div>
+                          <div className="mt-0.5 max-w-xs truncate text-xs text-stone-500">{c.description}</div>
                         )}
                       </TD>
                       <TD>
                         <Badge tone={statusTone(c.status)}>{c.status ?? 'draft'}</Badge>
                       </TD>
                       <TD className="tabular-nums">{fmtPct(c.threshold)}</TD>
-                      <TD className="text-slate-400">{c.assignee_id || <span className="text-slate-600">—</span>}</TD>
+                      <TD className="text-stone-400">{c.assignee_id || <span className="text-stone-600">—</span>}</TD>
                       <TD>
                         <div className="flex flex-wrap items-center gap-1">
                           {tags.length === 0 ? (
-                            <span className="text-xs text-slate-600">—</span>
+                            <span className="text-xs text-stone-600">—</span>
                           ) : (
                             tags.map((t) => {
                               const on = ids.includes(t.id)
@@ -426,7 +426,7 @@ export default function CasesPage() {
                                   className={`rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors disabled:opacity-50 ${
                                     on
                                       ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                                      : 'border-slate-700 bg-slate-800/40 text-slate-500 hover:text-slate-300'
+                                      : 'border-stone-700 bg-stone-800/40 text-stone-500 hover:text-stone-300'
                                   }`}
                                   title={on ? 'Remove tag' : 'Add tag'}
                                 >
@@ -437,7 +437,7 @@ export default function CasesPage() {
                           )}
                         </div>
                       </TD>
-                      <TD className="text-slate-500">{fmtDate(c.updated_at ?? c.created_at)}</TD>
+                      <TD className="text-stone-500">{fmtDate(c.updated_at ?? c.created_at)}</TD>
                       <TD className="text-right">
                         <div className="flex justify-end gap-2">
                           <Link href={`/dashboard/cases/${c.id}`}>
@@ -483,17 +483,17 @@ export default function CasesPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Name</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Name</label>
             <input
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
               autoFocus
               placeholder="Acme Holdings UBO review"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Description
             </label>
             <textarea
@@ -501,12 +501,12 @@ export default function CasesPage() {
               onChange={(e) => setNewDesc(e.target.value)}
               rows={3}
               placeholder="Optional context for this investigation"
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Threshold (%)
               </label>
               <input
@@ -516,15 +516,15 @@ export default function CasesPage() {
                 step="0.01"
                 value={newThreshold}
                 onChange={(e) => setNewThreshold(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               />
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Status</label>
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Status</label>
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
               >
                 {STATUSES.map((s) => (
                   <option key={s} value={s}>

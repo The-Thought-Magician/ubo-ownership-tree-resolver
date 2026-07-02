@@ -270,11 +270,11 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="min-w-0">
               <div className="flex items-center gap-3">
-                <h1 className="text-2xl font-bold tracking-tight text-slate-100">{finding.criterion}</h1>
+                <h1 className="text-2xl font-bold tracking-tight text-stone-100">{finding.criterion}</h1>
                 <Badge tone={determinationTone(finding.determination)}>{finding.determination.replace('_', ' ')}</Badge>
               </div>
-              {finding.basis && <p className="mt-1 text-sm text-slate-400">Basis: {finding.basis}</p>}
-              {finding.rationale && <p className="mt-2 max-w-2xl text-sm text-slate-400">{finding.rationale}</p>}
+              {finding.basis && <p className="mt-1 text-sm text-stone-400">Basis: {finding.basis}</p>}
+              {finding.rationale && <p className="mt-2 max-w-2xl text-sm text-stone-400">{finding.rationale}</p>}
             </div>
             <Button variant="secondary" onClick={() => setEditOpen(true)}>
               Edit finding
@@ -282,7 +282,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium uppercase tracking-wide text-slate-500">Determination:</span>
+            <span className="text-xs font-medium uppercase tracking-wide text-stone-500">Determination:</span>
             {DETERMINATIONS.map((d) => (
               <button
                 key={d}
@@ -290,7 +290,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
                 className={`rounded-lg border px-3 py-1 text-xs font-medium capitalize transition-colors ${
                   finding.determination === d
                     ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                    : 'border-slate-700 bg-slate-800/50 text-slate-400 hover:text-slate-200'
+                    : 'border-stone-700 bg-stone-800/50 text-stone-400 hover:text-stone-200'
                 }`}
               >
                 {d.replace('_', ' ')}
@@ -311,13 +311,13 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
       {/* progress bar */}
       <Card>
         <CardBody>
-          <div className="mb-2 flex items-center justify-between text-xs text-slate-500">
+          <div className="mb-2 flex items-center justify-between text-xs text-stone-500">
             <span>Control-test completion</span>
             <span className="tabular-nums">
               {stats.satisfied}/{stats.total}
             </span>
           </div>
-          <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-800">
+          <div className="h-2.5 w-full overflow-hidden rounded-full bg-stone-800">
             <div
               className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-emerald-400 transition-all"
               style={{ width: `${stats.ratio}%` }}
@@ -328,7 +328,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
 
       {/* add test */}
       <Card>
-        <CardHeader className="text-sm font-semibold text-slate-100">Add control test</CardHeader>
+        <CardHeader className="text-sm font-semibold text-stone-100">Add control test</CardHeader>
         <CardBody className="space-y-3">
           {itemError && (
             <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-300">
@@ -341,14 +341,14 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
               onChange={(e) => setNewLabel(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addItem()}
               placeholder="Test / criterion label"
-              className="flex-1 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="flex-1 rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
             />
             <input
               value={newValue}
               onChange={(e) => setNewValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addItem()}
               placeholder="Observed value / note (optional)"
-              className="flex-1 rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="flex-1 rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-indigo-500 focus:outline-none"
             />
             <Button onClick={() => addItem()} disabled={addingItem}>
               {addingItem ? 'Adding...' : 'Add test'}
@@ -356,13 +356,13 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
           </div>
           {suggestionsToShow.length > 0 && (
             <div className="flex flex-wrap gap-1.5 pt-1">
-              <span className="text-xs text-slate-500">Quick add:</span>
+              <span className="text-xs text-stone-500">Quick add:</span>
               {suggestionsToShow.map((s) => (
                 <button
                   key={s}
                   onClick={() => addItem(s)}
                   disabled={addingItem}
-                  className="rounded-full border border-slate-700 bg-slate-800/50 px-2.5 py-0.5 text-xs text-slate-400 hover:border-indigo-500/40 hover:text-indigo-300 disabled:opacity-50"
+                  className="rounded-full border border-stone-700 bg-stone-800/50 px-2.5 py-0.5 text-xs text-stone-400 hover:border-indigo-500/40 hover:text-indigo-300 disabled:opacity-50"
                 >
                   + {s}
                 </button>
@@ -374,7 +374,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
 
       {/* worksheet items */}
       <Card>
-        <CardHeader className="text-sm font-semibold text-slate-100">Control-test worksheet</CardHeader>
+        <CardHeader className="text-sm font-semibold text-stone-100">Control-test worksheet</CardHeader>
         {items.length === 0 ? (
           <CardBody>
             <EmptyState
@@ -383,7 +383,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
             />
           </CardBody>
         ) : (
-          <ul className="divide-y divide-slate-800">
+          <ul className="divide-y divide-stone-800">
             {items.map((item) => (
               <li key={item.id} className="flex items-start gap-4 px-5 py-4">
                 <button
@@ -393,11 +393,11 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
                   className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border transition-colors ${
                     item.satisfied
                       ? 'border-emerald-500/40 bg-emerald-500/20 text-emerald-300'
-                      : 'border-slate-700 bg-slate-800/50 text-transparent hover:border-indigo-500/40'
+                      : 'border-stone-700 bg-stone-800/50 text-transparent hover:border-indigo-500/40'
                   }`}
                 >
                   {busyItem === item.id ? (
-                    <span className="h-3 w-3 animate-spin rounded-full border-2 border-slate-600 border-t-indigo-400" />
+                    <span className="h-3 w-3 animate-spin rounded-full border-2 border-stone-600 border-t-indigo-400" />
                   ) : (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                       <path d="M20 6 9 17l-5-5" />
@@ -405,10 +405,10 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
                   )}
                 </button>
                 <div className="min-w-0 flex-1">
-                  <div className={`text-sm font-medium ${item.satisfied ? 'text-slate-100' : 'text-slate-300'}`}>
+                  <div className={`text-sm font-medium ${item.satisfied ? 'text-stone-100' : 'text-stone-300'}`}>
                     {item.label}
                   </div>
-                  {item.value && <div className="mt-0.5 text-sm text-slate-500">{item.value}</div>}
+                  {item.value && <div className="mt-0.5 text-sm text-stone-500">{item.value}</div>}
                 </div>
                 <Badge tone={item.satisfied ? 'green' : 'slate'}>{item.satisfied ? 'Satisfied' : 'Pending'}</Badge>
                 <div className="flex gap-1">
@@ -448,32 +448,32 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
       >
         <div className="space-y-4">
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Criterion</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Criterion</label>
             <input
               value={editForm.criterion}
               onChange={(e) => setEditForm({ ...editForm, criterion: e.target.value })}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Basis</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Basis</label>
             <input
               value={editForm.basis}
               onChange={(e) => setEditForm({ ...editForm, basis: e.target.value })}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Rationale</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Rationale</label>
             <textarea
               value={editForm.rationale}
               onChange={(e) => setEditForm({ ...editForm, rationale: e.target.value })}
               rows={3}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Determination</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Determination</label>
             <div className="flex flex-wrap gap-2">
               {DETERMINATIONS.map((d) => (
                 <button
@@ -483,7 +483,7 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
                   className={`rounded-lg border px-3 py-1.5 text-sm font-medium capitalize transition-colors ${
                     editForm.determination === d
                       ? 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300'
-                      : 'border-slate-700 bg-slate-800/50 text-slate-400 hover:text-slate-200'
+                      : 'border-stone-700 bg-stone-800/50 text-stone-400 hover:text-stone-200'
                   }`}
                 >
                   {d.replace('_', ' ')}
@@ -512,22 +512,22 @@ export default function WorksheetPage({ params }: { params: Promise<{ id: string
       >
         <div className="space-y-4">
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Label</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Label</label>
             <input
               value={itemForm.label}
               onChange={(e) => setItemForm({ ...itemForm, label: e.target.value })}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Observed value / note
             </label>
             <textarea
               value={itemForm.value}
               onChange={(e) => setItemForm({ ...itemForm, value: e.target.value })}
               rows={3}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none"
             />
           </div>
         </div>

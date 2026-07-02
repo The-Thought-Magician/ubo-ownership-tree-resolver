@@ -242,8 +242,8 @@ export default function SnapshotsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Snapshots</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Snapshots</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Versioned freezes of a case ownership graph. Capture a snapshot before edits, then restore or diff it later.
           </p>
         </div>
@@ -277,11 +277,11 @@ export default function SnapshotsPage() {
         <>
           <Card>
             <CardBody className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <label className="text-xs font-medium uppercase tracking-wide text-slate-500">Case</label>
+              <label className="text-xs font-medium uppercase tracking-wide text-stone-500">Case</label>
               <select
                 value={caseId}
                 onChange={(e) => setCaseId(e.target.value)}
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-indigo-500 focus:outline-none sm:w-80"
+                className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 focus:border-indigo-500 focus:outline-none sm:w-80"
               >
                 {cases.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -301,8 +301,8 @@ export default function SnapshotsPage() {
 
           <Card>
             <CardHeader className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-slate-200">Version History</h2>
-              <span className="text-xs text-slate-500">{snapshots.length} snapshot(s)</span>
+              <h2 className="text-sm font-semibold text-stone-200">Version History</h2>
+              <span className="text-xs text-stone-500">{snapshots.length} snapshot(s)</span>
             </CardHeader>
             <CardBody className="p-0">
               {listLoading ? (
@@ -331,7 +331,7 @@ export default function SnapshotsPage() {
                   <TBody>
                     {snapshots.map((s, i) => (
                       <TR key={s.id}>
-                        <TD className="font-medium text-slate-100">
+                        <TD className="font-medium text-stone-100">
                           <div className="flex items-center gap-2">
                             {s.label}
                             {i === 0 && <Badge tone="green">latest</Badge>}
@@ -339,7 +339,7 @@ export default function SnapshotsPage() {
                         </TD>
                         <TD className="tabular-nums">{s.entity_count}</TD>
                         <TD className="tabular-nums">{s.edge_count}</TD>
-                        <TD className="text-slate-400">{fmtDate(s.created_at)}</TD>
+                        <TD className="text-stone-400">{fmtDate(s.created_at)}</TD>
                         <TD className="text-right">
                           <div className="flex justify-end gap-2">
                             <Button variant="ghost" className="px-2 py-1 text-xs" onClick={() => viewDetail(s)}>
@@ -374,7 +374,7 @@ export default function SnapshotsPage() {
           {detailId && (
             <Card>
               <CardHeader className="flex items-center justify-between">
-                <h2 className="text-sm font-semibold text-slate-200">
+                <h2 className="text-sm font-semibold text-stone-200">
                   Snapshot Contents{detail ? ` — ${detail.snapshot.label}` : ''}
                 </h2>
                 <button
@@ -382,7 +382,7 @@ export default function SnapshotsPage() {
                     setDetail(null)
                     setDetailId(null)
                   }}
-                  className="text-xs text-slate-500 hover:text-slate-300"
+                  className="text-xs text-stone-500 hover:text-stone-300"
                 >
                   Close
                 </button>
@@ -395,47 +395,47 @@ export default function SnapshotsPage() {
                 ) : (
                   <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                     <div>
-                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         Entities ({detail.entities.length})
                       </h3>
                       {detail.entities.length === 0 ? (
-                        <p className="text-sm text-slate-500">No entities captured.</p>
+                        <p className="text-sm text-stone-500">No entities captured.</p>
                       ) : (
                         <div className="space-y-1.5">
                           {detail.entities.map((e) => (
                             <div
                               key={e.id}
-                              className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-950/40 px-3 py-2"
+                              className="flex items-center justify-between rounded-lg border border-stone-800 bg-stone-950/40 px-3 py-2"
                             >
                               <div className="flex items-center gap-2">
-                                <span className="text-sm text-slate-200">{e.name}</span>
+                                <span className="text-sm text-stone-200">{e.name}</span>
                                 {e.is_target && <Badge tone="indigo">target</Badge>}
                                 {e.is_natural_person && <Badge tone="sky">person</Badge>}
                               </div>
-                              <span className="text-xs text-slate-500">{e.entity_type || '—'}</span>
+                              <span className="text-xs text-stone-500">{e.entity_type || '—'}</span>
                             </div>
                           ))}
                         </div>
                       )}
                     </div>
                     <div>
-                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         Ownership Edges ({detail.edges.length})
                       </h3>
                       {detail.edges.length === 0 ? (
-                        <p className="text-sm text-slate-500">No edges captured.</p>
+                        <p className="text-sm text-stone-500">No edges captured.</p>
                       ) : (
                         <div className="space-y-1.5">
                           {detail.edges.map((edge) => (
                             <div
                               key={edge.id}
-                              className="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-950/40 px-3 py-2 text-sm"
+                              className="flex items-center gap-2 rounded-lg border border-stone-800 bg-stone-950/40 px-3 py-2 text-sm"
                             >
-                              <span className="text-slate-300">
+                              <span className="text-stone-300">
                                 {entityNameById.get(edge.owner_entity_id) || edge.owner_entity_id.slice(0, 8)}
                               </span>
-                              <span className="text-slate-600">→</span>
-                              <span className="text-slate-300">
+                              <span className="text-stone-600">→</span>
+                              <span className="text-stone-300">
                                 {entityNameById.get(edge.owned_entity_id) || edge.owned_entity_id.slice(0, 8)}
                               </span>
                               <span className="ml-auto tabular-nums text-indigo-300">{pct(edge.percentage)}</span>
@@ -473,17 +473,17 @@ export default function SnapshotsPage() {
               {createError}
             </div>
           )}
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-stone-400">
             This freezes the current entities and ownership edges of the selected case into a named version.
           </p>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Label</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Label</label>
             <input
               value={label}
               onChange={(e) => setLabel(e.target.value)}
               placeholder="e.g. Pre-restructure baseline"
               autoFocus
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-lg border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder-stone-600 focus:border-indigo-500 focus:outline-none"
             />
           </div>
         </div>

@@ -154,8 +154,8 @@ export default function AuditLogPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Audit Log</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Audit Log</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Immutable, append-only trail of every mutation in this workspace — who did what, to which target, and when.
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function AuditLogPage() {
           <select
             value={workspaceId}
             onChange={(e) => setWorkspaceId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {workspaces.length === 0 && <option value="">No workspaces</option>}
             {workspaces.map((w) => (
@@ -196,18 +196,18 @@ export default function AuditLogPage() {
 
           <Card>
             <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-base font-semibold text-slate-100">Trail</h2>
+              <h2 className="text-base font-semibold text-stone-100">Trail</h2>
               <div className="flex flex-wrap gap-2">
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search action, target, actor…"
-                  className="w-56 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-56 rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <select
                   value={actionFilter}
                   onChange={(e) => setActionFilter(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">All actions</option>
                   {actionOptions.map((a) => (
@@ -219,7 +219,7 @@ export default function AuditLogPage() {
                 <select
                   value={targetFilter}
                   onChange={(e) => setTargetFilter(e.target.value)}
-                  className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">All targets</option>
                   {targetOptions.map((t) => (
@@ -269,16 +269,16 @@ export default function AuditLogPage() {
                       return (
                         <Fragment key={e.id}>
                           <TR>
-                            <TD className="whitespace-nowrap text-xs text-slate-500">{fmtDate(e.created_at)}</TD>
+                            <TD className="whitespace-nowrap text-xs text-stone-500">{fmtDate(e.created_at)}</TD>
                             <TD>
                               <Badge tone={actionTone(e.action)}>{e.action}</Badge>
                             </TD>
-                            <TD className="text-slate-300">
+                            <TD className="text-stone-300">
                               {e.target_type ? (
                                 <span>
-                                  <span className="text-slate-200">{e.target_type}</span>
+                                  <span className="text-stone-200">{e.target_type}</span>
                                   {e.target_id && (
-                                    <span className="ml-1 font-mono text-xs text-slate-500">
+                                    <span className="ml-1 font-mono text-xs text-stone-500">
                                       {e.target_id.slice(0, 8)}…
                                     </span>
                                   )}
@@ -287,10 +287,10 @@ export default function AuditLogPage() {
                                 '—'
                               )}
                             </TD>
-                            <TD className="font-mono text-xs text-slate-400">
+                            <TD className="font-mono text-xs text-stone-400">
                               {e.user_id ? `${e.user_id.slice(0, 10)}…` : 'system'}
                             </TD>
-                            <TD className="font-mono text-xs text-slate-500">
+                            <TD className="font-mono text-xs text-stone-500">
                               {e.case_id ? `${e.case_id.slice(0, 8)}…` : '—'}
                             </TD>
                             <TD className="text-right">
@@ -303,14 +303,14 @@ export default function AuditLogPage() {
                                   {open ? 'Hide' : 'View'}
                                 </Button>
                               ) : (
-                                <span className="text-xs text-slate-600">—</span>
+                                <span className="text-xs text-stone-600">—</span>
                               )}
                             </TD>
                           </TR>
                           {open && hasDetail && (
                             <TR>
-                              <TD colSpan={6} className="bg-slate-950/60">
-                                <pre className="max-h-72 overflow-auto rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-xs text-slate-400">
+                              <TD colSpan={6} className="bg-stone-950/60">
+                                <pre className="max-h-72 overflow-auto rounded-lg border border-stone-800 bg-stone-950 px-4 py-3 text-xs text-stone-400">
                                   {typeof e.detail === 'string' ? e.detail : JSON.stringify(e.detail, null, 2)}
                                 </pre>
                               </TD>

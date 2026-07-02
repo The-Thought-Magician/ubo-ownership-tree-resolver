@@ -284,8 +284,8 @@ export default function TrustsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-100">Trusts</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-semibold text-stone-100">Trusts</h1>
+          <p className="mt-1 text-sm text-stone-500">
             Model trustees, beneficiaries, the grantor, and how ownership flows through a trust entity.
           </p>
         </div>
@@ -293,7 +293,7 @@ export default function TrustsPage() {
           <select
             value={workspaceId}
             onChange={(e) => setWorkspaceId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {workspaces.length === 0 && <option value="">No workspaces</option>}
             {workspaces.map((w) => (
@@ -305,7 +305,7 @@ export default function TrustsPage() {
           <select
             value={caseId}
             onChange={(e) => setCaseId(e.target.value)}
-            className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {cases.length === 0 && <option value="">No cases</option>}
             {cases.map((c) => (
@@ -336,12 +336,12 @@ export default function TrustsPage() {
           <Card>
             <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-1 items-center gap-3">
-                <h2 className="text-base font-semibold text-slate-100">Trust models</h2>
+                <h2 className="text-base font-semibold text-stone-100">Trust models</h2>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search by entity or grantor…"
-                  className="w-full max-w-xs rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full max-w-xs rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
               <Button onClick={openCreate} disabled={availableEntities.length === 0}>
@@ -381,12 +381,12 @@ export default function TrustsPage() {
                       const beneficiaries = asStringList(t.beneficiaries)
                       return (
                         <TR key={t.id}>
-                          <TD className="font-medium text-slate-200">{entityName(t.entity_id)}</TD>
-                          <TD>{t.grantor || <span className="text-slate-600">—</span>}</TD>
+                          <TD className="font-medium text-stone-200">{entityName(t.entity_id)}</TD>
+                          <TD>{t.grantor || <span className="text-stone-600">—</span>}</TD>
                           <TD>
                             <div className="flex flex-wrap gap-1">
                               {trustees.length === 0 ? (
-                                <span className="text-slate-600">—</span>
+                                <span className="text-stone-600">—</span>
                               ) : (
                                 trustees.map((name, i) => (
                                   <Badge key={i} tone="sky">
@@ -399,7 +399,7 @@ export default function TrustsPage() {
                           <TD>
                             <div className="flex flex-wrap gap-1">
                               {beneficiaries.length === 0 ? (
-                                <span className="text-slate-600">—</span>
+                                <span className="text-stone-600">—</span>
                               ) : (
                                 beneficiaries.map((name, i) => (
                                   <Badge key={i} tone="green">
@@ -463,14 +463,14 @@ export default function TrustsPage() {
             </div>
           )}
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Trust entity
             </label>
             <select
               value={form.entity_id}
               onChange={(e) => setForm((f) => ({ ...f, entity_id: e.target.value }))}
               disabled={Boolean(editing)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60"
+              className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60"
             >
               <option value="">Select entity…</option>
               {availableEntities.map((e) => (
@@ -480,20 +480,20 @@ export default function TrustsPage() {
                 </option>
               ))}
             </select>
-            {editing && <p className="mt-1 text-xs text-slate-600">Trust entity cannot be changed after creation.</p>}
+            {editing && <p className="mt-1 text-xs text-stone-600">Trust entity cannot be changed after creation.</p>}
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Grantor</label>
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">Grantor</label>
             <input
               value={form.grantor}
               onChange={(e) => setForm((f) => ({ ...f, grantor: e.target.value }))}
               placeholder="Person who settled the trust"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Trustees
               </label>
               <textarea
@@ -501,11 +501,11 @@ export default function TrustsPage() {
                 onChange={(e) => setForm((f) => ({ ...f, trustees: e.target.value }))}
                 rows={4}
                 placeholder="One per line or comma-separated"
-                className="w-full resize-y rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full resize-y rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
                 Beneficiaries
               </label>
               <textarea
@@ -513,18 +513,18 @@ export default function TrustsPage() {
                 onChange={(e) => setForm((f) => ({ ...f, beneficiaries: e.target.value }))}
                 rows={4}
                 placeholder="One per line or comma-separated"
-                className="w-full resize-y rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full resize-y rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
           </div>
           <div>
-            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+            <label className="mb-1 block text-xs font-medium uppercase tracking-wide text-stone-500">
               Ownership flow rule
             </label>
             <select
               value={form.flow_rule}
               onChange={(e) => setForm((f) => ({ ...f, flow_rule: e.target.value }))}
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-stone-700 bg-stone-900 px-3 py-2 text-sm text-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               {FLOW_RULES.map((r) => (
                 <option key={r.value} value={r.value}>
@@ -532,7 +532,7 @@ export default function TrustsPage() {
                 </option>
               ))}
             </select>
-            <p className="mt-1 text-xs text-slate-600">
+            <p className="mt-1 text-xs text-stone-600">
               Determines which parties receive the trust&apos;s effective ownership during resolution.
             </p>
           </div>
